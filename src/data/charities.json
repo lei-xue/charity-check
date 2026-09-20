@@ -1,0 +1,750 @@
+[
+  {
+    "ein": 133039601,
+    "name": "Alzheimers Disease And Related Disorders Association Inc",
+    "city": "Chicago",
+    "state": "IL",
+    "nteeCode": "G830",
+    "subsectionCode": 3,
+    "rulingDate": "1985-06-01",
+    "assetAmount": 523717634,
+    "incomeAmount": 612645082,
+    "revenueAmount": 457244898,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 412425302,
+      "totalExpenses": 460183069,
+      "totalAssets": 512971086,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_01_2024_prefixes_06-13%2F133039601_202306_990_2024011722246358.pdf"
+    }
+  },
+  {
+    "ein": 131788491,
+    "name": "American Cancer Society Inc",
+    "city": "Atlanta",
+    "state": "GA",
+    "nteeCode": "G300",
+    "subsectionCode": 3,
+    "rulingDate": "1942-11-01",
+    "assetAmount": 1652874190,
+    "incomeAmount": 647298265,
+    "revenueAmount": 136826348,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 656838115,
+      "totalExpenses": 756272604,
+      "totalAssets": 1809676040,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F131788491_202312_990_2025013123061740.pdf"
+    }
+  },
+  {
+    "ein": 136213516,
+    "name": "American Civil Liberties Union Foundation Inc",
+    "city": "New York",
+    "state": "NY",
+    "nteeCode": "R600",
+    "subsectionCode": 3,
+    "rulingDate": "1967-03-01",
+    "assetAmount": 961853261,
+    "incomeAmount": 461379142,
+    "revenueAmount": 306750536,
+    "latestFiling": {
+      "taxPeriod": 202403,
+      "totalRevenue": 185146988,
+      "totalExpenses": 201684585,
+      "totalAssets": 828604389,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F136213516_202403_990_2025031423211503.pdf"
+    }
+  },
+  {
+    "ein": 135613797,
+    "name": "American Heart Association Inc",
+    "city": "Dallas",
+    "state": "TX",
+    "nteeCode": "G430",
+    "subsectionCode": 3,
+    "rulingDate": "1949-07-01",
+    "assetAmount": 2009845329,
+    "incomeAmount": 1258725072,
+    "revenueAmount": 1070192712,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 925828648,
+      "totalExpenses": 862517013,
+      "totalAssets": 1790168039,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F135613797_202306_990_2024040522346958.pdf"
+    }
+  },
+  {
+    "ein": 530196605,
+    "name": "American National Red Cross",
+    "city": "Washington",
+    "state": "DC",
+    "nteeCode": "P210",
+    "subsectionCode": 3,
+    "rulingDate": "1938-12-01",
+    "assetAmount": 5052941623,
+    "incomeAmount": 4608946426,
+    "revenueAmount": 3916983933,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 3217077611,
+      "totalExpenses": 2971106889,
+      "totalAssets": 4028321133,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_03_2024_prefixes_41-54%2F530196605_202306_990_2024031222316430.pdf"
+    }
+  },
+  {
+    "ein": 131623829,
+    "name": "American Society For The Prevention Of Cruelty To Animals",
+    "city": "New York",
+    "state": "NY",
+    "nteeCode": "D200",
+    "subsectionCode": 3,
+    "rulingDate": "1921-03-01",
+    "assetAmount": 724808552,
+    "incomeAmount": 488235541,
+    "revenueAmount": 446134125,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 379347127,
+      "totalExpenses": 355569022,
+      "totalAssets": 640868499,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F131623829_202312_990_2025021423096967.pdf"
+    }
+  },
+  {
+    "ein": 237147797,
+    "name": "Best Friends Animal Society",
+    "city": "Kanab",
+    "state": "UT",
+    "nteeCode": "D200",
+    "subsectionCode": 3,
+    "rulingDate": "1971-12-01",
+    "assetAmount": 194689106,
+    "incomeAmount": 196157810,
+    "revenueAmount": 173780697,
+    "latestFiling": {
+      "taxPeriod": 202309,
+      "totalRevenue": 173491983,
+      "totalExpenses": 148139598,
+      "totalAssets": 216306392,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F237147797_202309_990_2024120622937899.pdf"
+    }
+  },
+  {
+    "ein": 135562976,
+    "name": "Boys & Girls Clubs Of America",
+    "city": "Atlanta",
+    "state": "GA",
+    "nteeCode": "O230",
+    "subsectionCode": 3,
+    "rulingDate": "1999-08-01",
+    "assetAmount": 95199320,
+    "incomeAmount": 232796679,
+    "revenueAmount": 229564784,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 170722923,
+      "totalExpenses": 230583168,
+      "totalAssets": 89959878,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F135562976_202312_990_2025020323065683.pdf"
+    }
+  },
+  {
+    "ein": 530196620,
+    "name": "Catholic Charities Usa",
+    "city": "Alexandria",
+    "state": "VA",
+    "nteeCode": "X20",
+    "subsectionCode": 3,
+    "rulingDate": "2014-08-01",
+    "assetAmount": null,
+    "incomeAmount": null,
+    "revenueAmount": null,
+    "latestFiling": null
+  },
+  {
+    "ein": 223936753,
+    "name": "Charity Global Inc",
+    "city": "Franklin",
+    "state": "TN",
+    "nteeCode": "P80",
+    "subsectionCode": 3,
+    "rulingDate": "2007-02-01",
+    "assetAmount": 144877238,
+    "incomeAmount": 162373064,
+    "revenueAmount": 95010230,
+    "latestFiling": {
+      "taxPeriod": 202212,
+      "totalRevenue": 96818300,
+      "totalExpenses": 101269828,
+      "totalAssets": 175942434,
+      "pdfUrl": null
+    }
+  },
+  {
+    "ein": 362423707,
+    "name": "Compassion International Incorporated",
+    "city": "Colorado Spgs",
+    "state": "CO",
+    "nteeCode": "Q33",
+    "subsectionCode": 3,
+    "rulingDate": "2014-08-01",
+    "assetAmount": null,
+    "incomeAmount": null,
+    "revenueAmount": null,
+    "latestFiling": {
+      "taxPeriod": 201906,
+      "totalRevenue": 953223395,
+      "totalExpenses": 932620034,
+      "totalAssets": 364011907,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=01_2020_prefixes_34-36%2F362423707_201906_990_2020010316996116.pdf"
+    }
+  },
+  {
+    "ein": 951831116,
+    "name": "Direct Relief",
+    "city": "Santa Barbara",
+    "state": "CA",
+    "nteeCode": "Q330",
+    "subsectionCode": 3,
+    "rulingDate": "1949-11-01",
+    "assetAmount": 1292290030,
+    "incomeAmount": 2451996374,
+    "revenueAmount": 2398998642,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 2266763483,
+      "totalExpenses": 2071171227,
+      "totalAssets": 1170526870,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_02_2024_prefixes_93-99%2F951831116_202306_990_2024022022294206.pdf"
+    }
+  },
+  {
+    "ein": 43091431,
+    "name": "Electronic Frontier Foundation Inc",
+    "city": "San Francisco",
+    "state": "CA",
+    "nteeCode": null,
+    "subsectionCode": 3,
+    "rulingDate": "1990-07-01",
+    "assetAmount": 56346261,
+    "incomeAmount": 21592581,
+    "revenueAmount": 21592581,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 17954838,
+      "totalExpenses": 19156013,
+      "totalAssets": 46707648,
+      "pdfUrl": null
+    }
+  },
+  {
+    "ein": 363673599,
+    "name": "Feeding America",
+    "city": "Chicago",
+    "state": "IL",
+    "nteeCode": "K310",
+    "subsectionCode": 3,
+    "rulingDate": "1990-01-01",
+    "assetAmount": 572495646,
+    "incomeAmount": 5109104956,
+    "revenueAmount": 5001395215,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 4916912461,
+      "totalExpenses": 4933690967,
+      "totalAssets": 626129732,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_05_2024_prefixes_35-38%2F363673599_202306_990_2024050722387003.pdf"
+    }
+  },
+  {
+    "ein": 530196517,
+    "name": "Goodwill Industries International Inc",
+    "city": "Rockville",
+    "state": "MD",
+    "nteeCode": "N320",
+    "subsectionCode": 3,
+    "rulingDate": "1952-01-01",
+    "assetAmount": 76699426,
+    "incomeAmount": 185960280,
+    "revenueAmount": 66583568,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 70964985,
+      "totalExpenses": 67699789,
+      "totalAssets": 67228414,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F530196517_202312_990_2024062122571371.pdf"
+    }
+  },
+  {
+    "ein": 911914868,
+    "name": "Habitat For Humanity International Inc",
+    "city": "Americus",
+    "state": "GA",
+    "nteeCode": "Q330",
+    "subsectionCode": 3,
+    "rulingDate": "1987-01-01",
+    "assetAmount": 759980018,
+    "incomeAmount": 403912238,
+    "revenueAmount": 370010910,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 329195153,
+      "totalExpenses": 330613285,
+      "totalAssets": 565862638,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_01_2024_prefixes_88-91%2F911914868_202306_990_2024011122218481.pdf"
+    }
+  },
+  {
+    "ein": 530225390,
+    "name": "Humane World For Animals Inc",
+    "city": "Gaithersburg",
+    "state": "MD",
+    "nteeCode": "D200",
+    "subsectionCode": 3,
+    "rulingDate": "1956-01-01",
+    "assetAmount": 543169847,
+    "incomeAmount": 312445370,
+    "revenueAmount": 216548337,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 174968233,
+      "totalExpenses": 177657489,
+      "totalAssets": 454727590,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F530225390_202312_990_2025011723014621.pdf"
+    }
+  },
+  {
+    "ein": 261544963,
+    "name": "Khan Academy Inc",
+    "city": "Mountain View",
+    "state": "CA",
+    "nteeCode": "B99",
+    "subsectionCode": 3,
+    "rulingDate": "2008-05-01",
+    "assetAmount": 158656292,
+    "incomeAmount": 186681381,
+    "revenueAmount": 117488956,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 98267721,
+      "totalExpenses": 68127201,
+      "totalAssets": 136250357,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F261544963_202312_990_2025022823138176.pdf"
+    }
+  },
+  {
+    "ein": 363304707,
+    "name": "Lutheran Services In America Incorporated",
+    "city": "Washington",
+    "state": "DC",
+    "nteeCode": "X20",
+    "subsectionCode": 3,
+    "rulingDate": "2015-09-01",
+    "assetAmount": 14054388,
+    "incomeAmount": 8106239,
+    "revenueAmount": 8106239,
+    "latestFiling": {
+      "taxPeriod": 202406,
+      "totalRevenue": 6253003,
+      "totalExpenses": 5985399,
+      "totalAssets": 10300820,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F363304707_202406_990_2025021423097964.pdf"
+    }
+  },
+  {
+    "ein": 860481941,
+    "name": "Make- A- Wish Foundation Of America",
+    "city": "Phoenix",
+    "state": "AZ",
+    "nteeCode": null,
+    "subsectionCode": 3,
+    "rulingDate": "1986-06-01",
+    "assetAmount": 125508364,
+    "incomeAmount": 152858048,
+    "revenueAmount": 136767956,
+    "latestFiling": {
+      "taxPeriod": 202308,
+      "totalRevenue": 135276222,
+      "totalExpenses": 124505937,
+      "totalAssets": 107210146,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F860481941_202308_990_2024042322370493.pdf"
+    }
+  },
+  {
+    "ein": 131846366,
+    "name": "March Of Dimes Inc",
+    "city": "Arlington",
+    "state": "VA",
+    "nteeCode": "G200",
+    "subsectionCode": 3,
+    "rulingDate": "1950-09-01",
+    "assetAmount": 64169362,
+    "incomeAmount": 103247818,
+    "revenueAmount": 83573258,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 88512222,
+      "totalExpenses": 94886069,
+      "totalAssets": 67854062,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F131846366_202312_990_2025013123061219.pdf"
+    }
+  },
+  {
+    "ein": 133433452,
+    "name": "Medecins Sans Frontieres Usa Inc",
+    "city": "New York",
+    "state": "NY",
+    "nteeCode": "Q300",
+    "subsectionCode": 3,
+    "rulingDate": "1989-02-01",
+    "assetAmount": 434345054,
+    "incomeAmount": 814904265,
+    "revenueAmount": 776922926,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 767362916,
+      "totalExpenses": 856531073,
+      "totalAssets": 501967209,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F133433452_202312_990_2025021123091453.pdf"
+    }
+  },
+  {
+    "ein": 200097189,
+    "name": "Mozilla Foundation",
+    "city": "San Francisco",
+    "state": "CA",
+    "nteeCode": "U40",
+    "subsectionCode": 3,
+    "rulingDate": "2004-06-01",
+    "assetAmount": 123347649,
+    "incomeAmount": 37165545,
+    "revenueAmount": 37165545,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 64660933,
+      "totalExpenses": 39845284,
+      "totalAssets": 124157331,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F200097189_202312_990_2025030523156492.pdf"
+    }
+  },
+  {
+    "ein": 363258696,
+    "name": "National Council Of Young Mens Christian Assns Of The Usa",
+    "city": "Chicago",
+    "state": "IL",
+    "nteeCode": "P270",
+    "subsectionCode": 3,
+    "rulingDate": "1983-12-01",
+    "assetAmount": 260481687,
+    "incomeAmount": 314019041,
+    "revenueAmount": 198431455,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 152985859,
+      "totalExpenses": 157780689,
+      "totalAssets": 206134866,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F363258696_202312_990_2025013123053210.pdf"
+    }
+  },
+  {
+    "ein": 520907625,
+    "name": "National Public Radio Inc",
+    "city": "Washington",
+    "state": "DC",
+    "nteeCode": "A340",
+    "subsectionCode": 3,
+    "rulingDate": "1971-06-01",
+    "assetAmount": 407574541,
+    "incomeAmount": 621714716,
+    "revenueAmount": 325227715,
+    "latestFiling": {
+      "taxPeriod": 202309,
+      "totalRevenue": 302474004,
+      "totalExpenses": 315777079,
+      "totalAssets": 388515133,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F520907625_202309_990_2024120622937922.pdf"
+    }
+  },
+  {
+    "ein": 530242652,
+    "name": "Nature Conservancy",
+    "city": "Arlington",
+    "state": "VA",
+    "nteeCode": null,
+    "subsectionCode": 3,
+    "rulingDate": "1954-03-01",
+    "assetAmount": 10108681571,
+    "incomeAmount": 4046232958,
+    "revenueAmount": 1746229436,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 1166010019,
+      "totalExpenses": 1119899341,
+      "totalAssets": 9223371239,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_05_2024_prefixes_52-58%2F530242652_202306_990_2024051722391963.pdf"
+    }
+  },
+  {
+    "ein": 237245152,
+    "name": "Ocean Conservancy Inc",
+    "city": "Washington",
+    "state": "DC",
+    "nteeCode": "C320",
+    "subsectionCode": 3,
+    "rulingDate": "1972-12-01",
+    "assetAmount": 97908255,
+    "incomeAmount": 54511602,
+    "revenueAmount": 48811949,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 48602165,
+      "totalExpenses": 51861192,
+      "totalAssets": 96130718,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_03_2024_prefixes_20-27%2F237245152_202306_990_2024031222312055.pdf"
+    }
+  },
+  {
+    "ein": 131644147,
+    "name": "Planned Parenthood Federation Of America",
+    "city": "New York",
+    "state": "NY",
+    "nteeCode": "E420",
+    "subsectionCode": 3,
+    "rulingDate": "1995-05-01",
+    "assetAmount": 456193684,
+    "incomeAmount": 570932043,
+    "revenueAmount": 410003513,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 378167827,
+      "totalExpenses": 445964327,
+      "totalAssets": 457834409,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_03_2024_prefixes_01-20%2F131644147_202306_990_2024031222314367.pdf"
+    }
+  },
+  {
+    "ein": 142007220,
+    "name": "Pro Publica Inc",
+    "city": "New York",
+    "state": "NY",
+    "nteeCode": "A20",
+    "subsectionCode": 3,
+    "rulingDate": "2008-02-01",
+    "assetAmount": 108058174,
+    "incomeAmount": 77223688,
+    "revenueAmount": 64268632,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 57970562,
+      "totalExpenses": 44080009,
+      "totalAssets": 85514123,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F142007220_202312_990_2025020323066717.pdf"
+    }
+  },
+  {
+    "ein": 222406433,
+    "name": "Salvation Army National Corp",
+    "city": "Alexandria",
+    "state": "VA",
+    "nteeCode": null,
+    "subsectionCode": 3,
+    "rulingDate": "1933-06-01",
+    "assetAmount": null,
+    "incomeAmount": null,
+    "revenueAmount": null,
+    "latestFiling": null
+  },
+  {
+    "ein": 581437002,
+    "name": "Samaritans Purse",
+    "city": "Boone",
+    "state": "NC",
+    "nteeCode": "X20",
+    "subsectionCode": 3,
+    "rulingDate": "1981-04-01",
+    "assetAmount": 2589307799,
+    "incomeAmount": 2275218928,
+    "revenueAmount": 1839497527,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 1201910256,
+      "totalExpenses": 1037513821,
+      "totalAssets": 1826473329,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F581437002_202312_990_2025013123054916.pdf"
+    }
+  },
+  {
+    "ein": 946069890,
+    "name": "Sierra Club Foundation",
+    "city": "Oakland",
+    "state": "CA",
+    "nteeCode": "C300",
+    "subsectionCode": 3,
+    "rulingDate": "1962-06-01",
+    "assetAmount": 191559701,
+    "incomeAmount": 51898596,
+    "revenueAmount": 31947339,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 89068739,
+      "totalExpenses": 113468024,
+      "totalAssets": 199302924,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F946069890_202312_990_2025020623072499.pdf"
+    }
+  },
+  {
+    "ein": 520889518,
+    "name": "Special Olympics Inc",
+    "city": "Washington",
+    "state": "DC",
+    "nteeCode": "N720",
+    "subsectionCode": 3,
+    "rulingDate": "1969-07-01",
+    "assetAmount": 164249772,
+    "incomeAmount": 187089223,
+    "revenueAmount": 186403463,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 152233363,
+      "totalExpenses": 160530033,
+      "totalAssets": 150264447,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F520889518_202312_990_2025021423101698.pdf"
+    }
+  },
+  {
+    "ein": 620646012,
+    "name": "St Jude Childrens Research Hospital Inc",
+    "city": "Memphis",
+    "state": "TN",
+    "nteeCode": "E240",
+    "subsectionCode": 3,
+    "rulingDate": "1963-05-01",
+    "assetAmount": 12933669993,
+    "incomeAmount": 2215318745,
+    "revenueAmount": 2208853162,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 1707244071,
+      "totalExpenses": 1519049173,
+      "totalAssets": 10479499175,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F620646012_202306_990_2024062122569260.pdf"
+    }
+  },
+  {
+    "ein": 751835298,
+    "name": "Susan G Komen Breast Cancer Foundation",
+    "city": "Dallas",
+    "state": "TX",
+    "nteeCode": "G320",
+    "subsectionCode": 3,
+    "rulingDate": "1992-06-01",
+    "assetAmount": 178872555,
+    "incomeAmount": 138937712,
+    "revenueAmount": 103154379,
+    "latestFiling": {
+      "taxPeriod": 202303,
+      "totalRevenue": 107597705,
+      "totalExpenses": 117063869,
+      "totalAssets": 192631082,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_01_2024_prefixes_74-75%2F751835298_202303_990_2024011722247038.pdf"
+    }
+  },
+  {
+    "ein": 581698648,
+    "name": "The Task Force For Global Health Inc",
+    "city": "Decatur",
+    "state": "GA",
+    "nteeCode": "P30A",
+    "subsectionCode": 3,
+    "rulingDate": "1986-11-01",
+    "assetAmount": 132481029,
+    "incomeAmount": 114060584,
+    "revenueAmount": 114019244,
+    "latestFiling": {
+      "taxPeriod": 202308,
+      "totalRevenue": 95120285,
+      "totalExpenses": 93927282,
+      "totalAssets": 99670376,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F581698648_202308_990_2024071222684119.pdf"
+    }
+  },
+  {
+    "ein": 131635294,
+    "name": "United Way Worldwide",
+    "city": "Alexandria",
+    "state": "VA",
+    "nteeCode": "T700",
+    "subsectionCode": 3,
+    "rulingDate": "1934-09-01",
+    "assetAmount": 67977328,
+    "incomeAmount": 91655247,
+    "revenueAmount": 72397617,
+    "latestFiling": {
+      "taxPeriod": 202312,
+      "totalRevenue": 51568253,
+      "totalExpenses": 65723143,
+      "totalAssets": 70828290,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F131635294_202312_990_2025020623077988.pdf"
+    }
+  },
+  {
+    "ein": 200049703,
+    "name": "Wikimedia Foundation Org",
+    "city": "San Francisco",
+    "state": "CA",
+    "nteeCode": "B60",
+    "subsectionCode": 3,
+    "rulingDate": "2005-03-01",
+    "assetAmount": 310794417,
+    "incomeAmount": 286704286,
+    "revenueAmount": 205389744,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 180199672,
+      "totalExpenses": 168305333,
+      "totalAssets": 274123369,
+      "pdfUrl": null
+    }
+  },
+  {
+    "ein": 951922279,
+    "name": "World Vision",
+    "city": "Federal Way",
+    "state": "WA",
+    "nteeCode": "Q330",
+    "subsectionCode": 3,
+    "rulingDate": "1982-04-01",
+    "assetAmount": 515283132,
+    "incomeAmount": 2103866450,
+    "revenueAmount": 1423305144,
+    "latestFiling": {
+      "taxPeriod": 202309,
+      "totalRevenue": 1510055945,
+      "totalExpenses": 1534614805,
+      "totalAssets": 439422173,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_05_2024_prefixes_94-99%2F951922279_202309_990_2024051722392013.pdf"
+    }
+  },
+  {
+    "ein": 521693387,
+    "name": "World Wildlife Fund Inc",
+    "city": "Washington",
+    "state": "DC",
+    "nteeCode": "C30",
+    "subsectionCode": 3,
+    "rulingDate": "1991-08-01",
+    "assetAmount": 777252801,
+    "incomeAmount": 553088917,
+    "revenueAmount": 366655209,
+    "latestFiling": {
+      "taxPeriod": 202306,
+      "totalRevenue": 372835343,
+      "totalExpenses": 352906681,
+      "totalAssets": 755426255,
+      "pdfUrl": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F521693387_202306_990_2024040522347217.pdf"
+    }
+  }
+]
