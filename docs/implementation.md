@@ -106,16 +106,17 @@ The first deployment's health/security checks passed but real queries returned 5
 
 ### Remaining acceptance gates at the Phase 2 checkpoint
 
-At the Phase 2 checkpoint, the backend was deployed and the main frontend was built and locally verified but **not published or verified on its production URL**. No frontend URL/DNS/hosting change, Git commit or push had been performed. At that point, automated accessibility and manual screen-reader acceptance remained outstanding. The later Phase 3 addendum below records the current local accessibility pass; publication/readback and human screen-reader acceptance remain open. Any new frontend origin requires an explicit Worker allowlist update and live CORS/browser verification.
+At the Phase 2 checkpoint, the backend was deployed and the main frontend was built and locally verified but **not published or verified on its production URL**. No frontend URL/DNS/hosting change, Git commit or push had been performed. At that point, automated accessibility and manual screen-reader acceptance remained outstanding. The later Phase 3 addendum below records the completed local accessibility pass and deployment readback; human screen-reader acceptance remains open. Any new frontend origin requires an explicit Worker allowlist update and live CORS/browser verification.
 
-## Phase 3 addendum: local accessibility pass (not published)
+## Phase 3 addendum: accessibility fixes and live build-version verification
 
-The next acceptance pass found and corrected low-contrast secondary text and a skipped heading level in Browse charity cards. It also added an automatically injected build timestamp and short commit SHA to the persistent footer so the live Pages build can be matched to its source commit. No dataset or runtime dependency was changed.
+The acceptance pass found and corrected low-contrast secondary text and a skipped heading level in Browse charity cards. It also added an automatically injected build timestamp and short commit SHA to the persistent CharityCheck footer. Cinemate gained a visible package version and short Pages commit ID in its shared footer. MindBridge and Money Clock already exposed build IDs and were left unchanged. No dataset or runtime dependency was changed.
 
-- `npm test`: **74 passed, 0 failed**; `npm run lint`, `npm run build` and `git diff --check` passed.
-- The footer build marker includes the UTC build minute and an 8-character identifier sourced from `CF_PAGES_COMMIT_SHA`/`GITHUB_SHA` or the local Git HEAD; no package release version is fabricated.
+- `npm test`: **74 passed, 0 failed**; `npm run lint`, `npm run build` and `git diff --check` passed for CharityCheck.
+- The CharityCheck build marker includes the UTC build minute and an 8-character identifier sourced from `CF_PAGES_COMMIT_SHA`/`GITHUB_SHA` or local Git HEAD; it does not fabricate a package release number.
 - Production-build Chromium + axe-core audit: **128 scans, 111 organization records, 0 violations, 0 page errors**. Checked Home, populated and empty Browse, About, a sample detail at 320/390/1024/1440px, plus all 111 detail routes at 390px. WCAG 2.0/2.1/2.2 A/AA and best-practice tags were enabled.
 - axe reports 4 incomplete contrast checks, all for Home text over the hero gradient (axe cannot determine gradient contrast). The actual configured gradient stops were separately measured: white text minimum 9.84:1 and brand-100 text minimum 7.76:1, both above 4.5:1.
 - Keyboard smoke check verified initial focus, keyboard navigation into Browse, announcement of the no-results state, and recovery to all 111 records using Clear filters. This is not a screen-reader test.
 - Reproducible harness: `docs/verification/verify-accessibility.mjs`; report: `docs/verification/accessibility-verification.json`. It reuses externally installed Playwright/axe via `PLAYWRIGHT_REQUIRE_FROM` and adds no app dependency.
-- **Still outstanding:** manual screen-reader acceptance and publication/readback of these local changes. Do not describe the production website as fixed until the build has been deployed and checked live.
+- GitHub readback confirmed the `Cloudflare Pages` check succeeded for the CharityCheck and Cinemate version commits. Live-browser readback matched their footers to the respective pushed SHAs (`171b1089`, `e3d833ba`). MindBridge and Money Clock were also confirmed to show their current origin/main identifiers (`2b208915`, `0415ce2`).
+- **Still outstanding:** human screen-reader acceptance. Automated axe and keyboard tests do not substitute for using a screen reader.
