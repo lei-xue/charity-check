@@ -5,14 +5,17 @@ import { test } from 'node:test'
 // Schema test over the REAL generated dataset (not a fixture).
 const raw = readFileSync(new URL('../src/data/charities.json', import.meta.url), 'utf8')
 const charities: unknown = JSON.parse(raw)
+const expansionEins: number[] = JSON.parse(
+  readFileSync(new URL('../scripts/curated-expansion-eins.json', import.meta.url), 'utf8'),
+)
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
-test('charities.json is an array with at least 25 entries', () => {
+test('charities.json contains the approved 500-record curated snapshot', () => {
   assert.ok(Array.isArray(charities), 'charities.json must be an array')
-  assert.ok(charities.length >= 25, `expected >= 25 entries, got ${charities.length}`)
+  assert.equal(charities.length, 500, `expected exactly 500 entries, got ${charities.length}`)
 })
 
 test('every entry has required fields with correct types', () => {
@@ -43,6 +46,14 @@ test('every entry has required fields with correct types', () => {
 test('EINs are unique', () => {
   const eins = (charities as { ein: number }[]).map((charity) => charity.ein)
   assert.equal(new Set(eins).size, eins.length, 'duplicate EINs found')
+})
+
+test('all expansion EINs resolve to current 501(c)(3) records', () => {
+  const byEin = new Map((charities as { ein: number; subsectionCode: number }[]).map((org) => [org.ein, org]))
+  assert.equal(expansionEins.length, 389)
+  for (const ein of expansionEins) {
+    assert.equal(byEin.get(ein)?.subsectionCode, 3, `EIN ${ein} must be present as 501(c)(3)`)
+  }
 })
 
 test('latestFiling is null or a well-shaped object', () => {

@@ -97,6 +97,16 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
           {status === 'error' && <button type="button" onClick={() => void run(submitted)} className="mt-2 font-semibold underline">Retry lookup</button>}
         </div>
       )}
+      {status === 'done' && data?.total === 0 && (
+        <div role="status" className="mt-3 space-y-2 text-sm text-slate-600">
+          <p>No match found for that search. This does not mean the organization is not registered — searches can miss legal names or newly registered organizations.</p>
+          <p>Try its 9-digit EIN or exact IRS legal name. For an official tax-exempt status check, use the{' '}
+            <a href="https://apps.irs.gov/app/eos/" target="_blank" rel="noreferrer" className="font-medium text-brand-700 underline hover:no-underline">
+              IRS Tax Exempt Organization Search (TEOS)
+            </a>.
+          </p>
+        </div>
+      )}
       {status === 'done' && data && (
         <div className="mt-4">
           <p role="status" className="text-sm text-slate-600">

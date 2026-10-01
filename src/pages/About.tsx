@@ -34,10 +34,10 @@ export function About() {
           reported it.
         </p>
         <p className="mt-2 text-slate-600">
-          The curated snapshot of {charities.length} well-known charities was captured on{' '}
-          {snapshotDateLabel()}, so figures reflect the most recent filing available at that moment,
-          not real-time data. The optional broader lookup queries the same
-          API through our bounded Cloudflare Worker. Submitting sends your query
+          The curated snapshot of {charities.length} selected U.S. charitable organizations is not a
+          complete registry. It was captured on {snapshotDateLabel()}, so figures reflect the most
+          recent filing available at that moment, not real-time data. The optional broader lookup
+          queries the same API through our bounded Cloudflare Worker. Submitting sends your query
           to Cloudflare and ProPublica; local browsing does not. Name results retain every record
           on each source page, with Previous/Next navigation. ProPublica caps broad searches at
           10,000 matches, so a capped result is not a complete count of all possible matches.

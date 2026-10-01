@@ -1,4 +1,4 @@
-import { causeFromNtee, einMatchesQuery } from './status'
+import { causeFromNtee, einMatchesQuery } from './status.ts'
 import type { Charity } from './types'
 
 export function causeLetter(org: Charity): string {
@@ -30,18 +30,8 @@ export function filterCharities(charities: Charity[], filters: CharityFilters): 
     if (filters.state && org.state?.toUpperCase() !== filters.state.toUpperCase()) return false
     if (filters.cause && causeLetter(org) !== filters.cause.toUpperCase()) return false
     const revenue = org.revenueAmount
-    if (
-      filters.minRevenue !== undefined &&
-      (revenue === null || revenue < filters.minRevenue)
-    ) {
-      return false
-    }
-    if (
-      filters.maxRevenue !== undefined &&
-      (revenue === null || revenue > filters.maxRevenue)
-    ) {
-      return false
-    }
+    if (filters.minRevenue !== undefined && (revenue === null || revenue < filters.minRevenue)) return false
+    if (filters.maxRevenue !== undefined && (revenue === null || revenue > filters.maxRevenue)) return false
     return true
   })
 }

@@ -31,6 +31,7 @@ const META_FILE = path.join(ROOT, 'src', 'data', 'dataset-meta.json')
 const API = 'https://projects.propublica.org/nonprofits/api/v2'
 const DELAY_MS = 300
 const REQUEST_TIMEOUT_MS = 20_000
+const EXPECTED_DATASET_SIZE = 500
 
 const ENTRIES = [
   { label: 'American Red Cross', query: 'American National Red Cross' },
@@ -112,7 +113,7 @@ const ENTRIES = [
   { label: 'Meals on Wheels America' },
   { label: 'Ronald McDonald House Charities' },
   { label: 'Big Brothers Big Sisters of America' },
-  { label: 'Girl Scouts of the USA' },
+  { label: 'Girl Scouts of the USA (EIN 131624016)', ein: 131624016, expectedSubsectionCode: 3, expectedStatusCode: 1 },
   { label: 'Scouting America', query: 'Boy Scouts of America' },
   { label: 'USO', query: 'United Service Organizations' },
   { label: 'Wounded Warrior Project' },
@@ -124,7 +125,7 @@ const ENTRIES = [
   { label: 'Americares' },
   { label: 'Save the Children', query: 'Save the Children Federation' },
   { label: 'UNICEF USA', query: 'United States Fund for UNICEF' },
-  { label: 'CARE USA', query: 'CARE' },
+  { label: 'CARE USA (EIN 131685039)', ein: 131685039, expectedSubsectionCode: 3, expectedStatusCode: 1 },
   { label: 'Oxfam America' },
   { label: 'International Rescue Committee' },
   { label: 'Mercy Corps' },
@@ -274,8 +275,28 @@ function normalizeOrg(organization, filingsWithData) {
 async function resolveEntry(entry, label) {
   if (entry.ein) {
     const detail = await fetchOrganization(entry.ein)
-    if (!detail.organization) throw new Error(`EIN ${entry.ein} not found`)
-    return { charity: normalizeOrg(detail.organization, detail.filings_with_data), tier: 'ein' }
+    const organization = detail.organization
+    if (!organization) throw new Error(`EIN ${entry.ein} not found`)
+    if (Number(organization.ein) !== Number(entry.ein)) {
+      throw new Error(`Requested EIN ${entry.ein}, API returned ${organization.ein}`)
+    }
+    if (
+      entry.expectedSubsectionCode !== undefined &&
+      Number(organization.subsection_code) !== entry.expectedSubsectionCode
+    ) {
+      throw new Error(`EIN ${entry.ein} has subsection ${organization.subsection_code}, expected ${entry.expectedSubsectionCode}`)
+    }
+    if (
+      entry.expectedStatusCode !== undefined &&
+      Number(organization.exempt_organization_status_code) !== entry.expectedStatusCode
+    ) {
+      throw new Error(`EIN ${entry.ein} has IRS status ${organization.exempt_organization_status_code}, expected ${entry.expectedStatusCode}`)
+    }
+    return {
+      charity: normalizeOrg(organization, detail.filings_with_data),
+      tier: 'ein',
+      statusCode: organization.exempt_organization_status_code,
+    }
   }
 
   const results = await searchOrganizations(entry.query ?? label)
@@ -331,6 +352,28 @@ async function main() {
   const refresh = process.argv.includes('--refresh')
   await mkdir(path.dirname(OUT_FILE), { recursive: true })
 
+  const expansionEins = JSON.parse(
+    await readFile(path.join(ROOT, 'scripts', 'curated-expansion-eins.json'), 'utf8'),
+  )
+  if (!Array.isArray(expansionEins) || expansionEins.some((ein) => !Number.isInteger(ein) || ein <= 0)) {
+    throw new Error('curated-expansion-eins.json must be an array of positive integer EINs')
+  }
+  if (new Set(expansionEins).size !== expansionEins.length) {
+    throw new Error('curated-expansion-eins.json contains duplicate EINs')
+  }
+  const entries = [
+    ...ENTRIES,
+    ...expansionEins.map((ein) => ({
+      label: `Expanded EIN ${String(ein).padStart(9, '0')}`,
+      ein,
+      expectedSubsectionCode: 3,
+      expectedStatusCode: 1,
+    })),
+  ]
+  if (entries.length !== EXPECTED_DATASET_SIZE) {
+    throw new Error(`Expected ${EXPECTED_DATASET_SIZE} curated entries, found ${entries.length}`)
+  }
+
   let state = {}
   try {
     state = JSON.parse(await readFile(STATE_FILE, 'utf8'))
@@ -345,10 +388,13 @@ async function main() {
   let noResults = 0
   let failed = 0
 
-  for (const entry of ENTRIES) {
+  for (const entry of entries) {
     const label = entry.label
     const cachedEntry = state[label]
-    if (cachedEntry?.charity) {
+    const cacheMatchesExpectations = cachedEntry?.charity &&
+      (entry.expectedSubsectionCode === undefined || cachedEntry.charity.subsectionCode === entry.expectedSubsectionCode) &&
+      (entry.expectedStatusCode === undefined || cachedEntry.statusCode === entry.expectedStatusCode)
+    if (cacheMatchesExpectations) {
       charities.push(cachedEntry.charity)
       cached++
       console.log(`cache ${label} -> ${cachedEntry.charity.name} (${cachedEntry.charity.ein})`)
@@ -371,6 +417,7 @@ async function main() {
       state[label] = {
         tier: resolved.tier,
         ein: resolved.charity.ein,
+        statusCode: resolved.statusCode,
         note: entry.note,
         charity: resolved.charity,
       }
@@ -385,26 +432,49 @@ async function main() {
     }
   }
 
-  charities.sort((a, b) => a.name.localeCompare(b.name))
+  const uniqueCharities = []
+  const seenEins = new Set()
+  const duplicateEins = []
+  for (const charity of charities) {
+    if (seenEins.has(charity.ein)) {
+      duplicateEins.push(charity.ein)
+      continue
+    }
+    seenEins.add(charity.ein)
+    uniqueCharities.push(charity)
+  }
+
+  // Preserve successful fetches for retries, but never replace a complete
+  // dataset snapshot with a partial run.
+  await writeFile(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`)
+  if (failed > 0 || noResults > 0 || duplicateEins.length > 0 || uniqueCharities.length !== EXPECTED_DATASET_SIZE) {
+    console.error(
+      `Dataset unchanged: expected ${EXPECTED_DATASET_SIZE} unique records, got ${uniqueCharities.length}; ` +
+        `${failed} failed, ${noResults} no-results, ${duplicateEins.length} duplicate EINs. Rerun to retry failures.`,
+    )
+    process.exitCode = 1
+    return
+  }
+
+  uniqueCharities.sort((a, b) => a.name.localeCompare(b.name))
 
   const meta = {
     generatedAt: new Date().toISOString(),
     source: 'IRS Form 990 data via the ProPublica Nonprofit Explorer API v2',
-    count: charities.length,
+    count: uniqueCharities.length,
   }
 
-  await writeFile(OUT_FILE, `${JSON.stringify(charities, null, 2)}\n`)
+  await writeFile(OUT_FILE, `${JSON.stringify(uniqueCharities, null, 2)}\n`)
   await writeFile(META_FILE, `${JSON.stringify(meta, null, 2)}\n`)
-  await writeFile(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`)
 
   console.log(
     `Done: ${fetched} fetched, ${cached} cached, ${noResults} no-results, ` +
-      `${failed} failed. charities.json has ${charities.length} entries.`,
+      `${failed} failed. charities.json has ${uniqueCharities.length} entries.`,
   )
 }
 
 main().catch((error) => {
   console.error('FATAL', error)
-  // Never fail the whole build over dataset fetch problems.
-  process.exit(0)
+  // Surface fetch failures to the caller instead of reporting false success.
+  process.exitCode = 1
 })
