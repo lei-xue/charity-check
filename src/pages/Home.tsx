@@ -26,9 +26,9 @@ export function Home() {
 
   return (
     <div className="flex flex-col gap-12">
-      <section className="rounded-2xl bg-gradient-to-br from-emerald-700 via-emerald-800 to-slate-900 px-6 py-12 text-center text-white sm:px-12">
+      <section className="rounded-2xl bg-gradient-to-br from-brand-700 via-brand-800 to-brand-900 px-6 py-12 text-center text-white sm:px-12">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Check before you give.</h1>
-        <p className="mx-auto mt-3 max-w-2xl text-emerald-100">
+        <p className="mx-auto mt-3 max-w-2xl text-brand-100">
           CharityCheck summarizes public IRS records and historical, self-reported Form 990 filings
           so you can see what a charity has reported — before you donate.
         </p>
@@ -44,11 +44,11 @@ export function Home() {
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search by name, EIN, or city"
             aria-label="Search charities by name, EIN, or city"
-            className="w-full rounded-xl border-0 bg-white px-5 py-3.5 text-base text-slate-900 shadow-sm outline-none ring-1 ring-white/20 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-300"
+            className="w-full rounded-xl border-0 bg-white px-5 py-3.5 text-base text-slate-900 shadow-sm outline-none ring-1 ring-white/20 placeholder:text-slate-400 focus:ring-2 focus:ring-brand-300"
           />
           <button
             type="submit"
-            className="rounded-xl bg-emerald-500 px-6 py-3.5 font-semibold text-white shadow-sm transition hover:bg-emerald-400"
+            className="rounded-xl bg-brand-600 px-6 py-3.5 font-semibold text-white shadow-sm transition hover:bg-brand-700"
           >
             Search
           </button>
@@ -95,7 +95,7 @@ export function Home() {
             <li key={cause.letter}>
               <Link
                 to={`/browse?cause=${cause.letter}`}
-                className="block h-full rounded-xl bg-white p-4 ring-1 ring-slate-200 transition hover:shadow-sm hover:ring-emerald-400"
+                className="block h-full rounded-xl bg-white p-4 ring-1 ring-slate-200 transition hover:shadow-sm hover:ring-brand-400"
               >
                 <span className="block font-semibold text-slate-900">{cause.label}</span>
                 <span className="mt-1 block text-sm text-slate-500">

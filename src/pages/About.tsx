@@ -25,7 +25,7 @@ export function About() {
             href="https://projects.propublica.org/nonprofits/api"
             target="_blank"
             rel="noreferrer"
-            className="font-medium text-emerald-700 hover:underline"
+            className="font-medium text-brand-700 hover:underline"
           >
             ProPublica Nonprofit Explorer API v2
           </a>
@@ -134,7 +134,7 @@ export function About() {
       </section>
 
       <p className="text-sm text-slate-500">
-        Ready to look around? <Link to="/browse" className="font-medium text-emerald-700 hover:underline">Browse the dataset</Link>.
+        Ready to look around? <Link to="/browse" className="font-medium text-brand-700 hover:underline">Browse the dataset</Link>.
       </p>
     </div>
   )

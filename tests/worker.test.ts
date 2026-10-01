@@ -41,6 +41,24 @@ test('worker rejects oversized and invalid upstream responses',async()=>{
  }
 })
 
+test('worker permits exact production origins without allowing lookalikes',async()=>{
+ for(const from of ['https://charitycheck.leixue.dev','https://charity-check.pages.dev',origin,'http://localhost:5173','http://127.0.0.1:4188']) {
+  const response=await handleRequest(request('/lookup?q=Foundation','GET',from),(async()=>new Response('{}')) as typeof fetch)
+  assert.equal(response.status,200)
+  assert.equal(response.headers.get('access-control-allow-origin'),from)
+  const preflight=await handleRequest(request('/lookup','OPTIONS',from))
+  assert.equal(preflight.status,204)
+  assert.equal(preflight.headers.get('access-control-allow-origin'),from)
+ }
+ for(const from of ['https://charitycheck.leixue.dev.evil.example','https://preview.charity-check.pages.dev','http://charitycheck.leixue.dev']) {
+  let calls=0
+  const response=await handleRequest(request('/lookup?q=Foundation','GET',from),(async()=>{calls++;return new Response('{}')}) as typeof fetch)
+  assert.equal(response.status,403)
+  assert.equal(response.headers.get('access-control-allow-origin'),null)
+  assert.equal(calls,0)
+ }
+})
+
 test('worker entrypoint accepts Cloudflare environment without treating it as a fetcher',async()=>{
  assert.equal((await worker.fetch(request('/health'))).status,200)
 })

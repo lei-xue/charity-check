@@ -47,6 +47,13 @@ try {
     check(`${viewport.width}: English document`, await page.locator('html').getAttribute('lang'), 'en')
     check(`${viewport.width}: snapshot date is stable across timezones`, await page.getByText(/Snapshot of public records taken September 20, 2026/).count(), 1)
     check(`${viewport.width}: metadata does not certify current IRS status`, !(await page.locator('meta[name="description"]').getAttribute('content')).includes('verify a charity'))
+    check(`${viewport.width}: cream canvas`, await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(250, 247, 240)')
+    check(`${viewport.width}: burgundy search button`, await page.getByRole('button', { name: 'Search', exact: true }).evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(146, 44, 78)')
+    check(`${viewport.width}: no home overflow`, await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
+    if (process.env.BROWSER_SCREENSHOTS) {
+      await mkdir(output, { recursive: true })
+      await page.screenshot({ path: `${output}/charitycheck-home-${viewport.width}.png`, fullPage: true })
+    }
     const navigate = async (hash, heading) => {
       await page.evaluate(hash => { window.location.hash = hash }, hash)
       await page.getByRole('heading', { name: heading, exact: true }).waitFor()
@@ -107,7 +114,7 @@ try {
     }
     check(`${viewport.width}: unknown canonical EIN stays optional`, observedPrefill, '99-9999999')
     await navigate('/about', 'About CharityCheck')
-    check(`${viewport.width}: transfer and partial-search limits disclosed`, (await page.locator('main').innerText()).includes('at most five matches'))
+    check(`${viewport.width}: transfer and partial-search limits disclosed`, (await page.locator('main').innerText()).includes('10,000 matches') && (await page.locator('main').innerText()).includes('Cloudflare and ProPublica'))
     check(`${viewport.width}: no Chinese or language switch in rendered pages`, !(await page.locator('body').innerText()).match(/[\u3400-\u9fff]|Español|Language switch/))
     check(`${viewport.width}: no About horizontal overflow`, await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
     if (process.env.BROWSER_SCREENSHOTS) {

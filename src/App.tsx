@@ -6,7 +6,7 @@ import { OrgDetail } from './pages/OrgDetail'
 
 const NAV_LINK_CLASS = ({ isActive }: { isActive: boolean }) =>
   `rounded-lg px-3 py-1.5 transition ${
-    isActive ? 'bg-emerald-100 text-emerald-800' : 'text-slate-600 hover:bg-slate-100'
+    isActive ? 'bg-brand-100 text-brand-800' : 'text-slate-600 hover:bg-slate-100'
   }`
 
 function NotFound() {
@@ -16,7 +16,7 @@ function NotFound() {
       <p className="mt-2 text-slate-500">The page you are looking for does not exist.</p>
       <Link
         to="/"
-        className="mt-4 inline-block rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white transition hover:bg-emerald-700"
+        className="mt-4 inline-block rounded-lg bg-brand-600 px-4 py-2 font-medium text-white transition hover:bg-brand-700"
       >
         Back to home
       </Link>
@@ -32,7 +32,7 @@ export default function App() {
           <Link to="/" className="flex items-center gap-2 font-bold text-slate-900">
             <span
               aria-hidden="true"
-              className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-600 text-sm text-white"
+              className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-sm text-white"
             >
               CC
             </span>
@@ -78,7 +78,7 @@ export default function App() {
               href="https://apps.irs.gov/app/eos/"
               target="_blank"
               rel="noreferrer"
-              className="font-medium text-emerald-700 hover:underline"
+              className="font-medium text-brand-700 hover:underline"
             >
               apps.irs.gov
             </a>{' '}
@@ -90,11 +90,11 @@ export default function App() {
               href="https://projects.propublica.org/nonprofits/"
               target="_blank"
               rel="noreferrer"
-              className="font-medium text-emerald-700 hover:underline"
+              className="font-medium text-brand-700 hover:underline"
             >
               ProPublica Nonprofit Explorer
             </a>
-            . Read more on the <Link to="/about" className="font-medium text-emerald-700 hover:underline">About page</Link>.
+            . Read more on the <Link to="/about" className="font-medium text-brand-700 hover:underline">About page</Link>.
           </p>
         </div>
       </footer>

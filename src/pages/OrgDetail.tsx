@@ -51,7 +51,7 @@ export function OrgDetail() {
             </p>
             <Link
               to="/browse"
-              className="mt-4 inline-block rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white transition hover:bg-emerald-700"
+              className="mt-4 inline-block rounded-lg bg-brand-600 px-4 py-2 font-medium text-white transition hover:bg-brand-700"
             >
               Browse charities
             </Link>
@@ -78,7 +78,7 @@ export function OrgDetail() {
           </p>
           <Link
             to="/browse"
-            className="mt-4 inline-block rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white transition hover:bg-emerald-700"
+            className="mt-4 inline-block rounded-lg bg-brand-600 px-4 py-2 font-medium text-white transition hover:bg-brand-700"
           >
             Browse charities
           </Link>
@@ -96,7 +96,7 @@ export function OrgDetail() {
   return (
     <div className="flex flex-col gap-6">
       <p className="text-sm">
-        <Link to="/browse" className="font-medium text-emerald-700 hover:underline">
+        <Link to="/browse" className="font-medium text-brand-700 hover:underline">
           ← Back to browse
         </Link>
       </p>
@@ -174,7 +174,7 @@ export function OrgDetail() {
                 href={pdfUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white transition hover:bg-emerald-700"
+                className="inline-block rounded-lg bg-brand-600 px-4 py-2 font-medium text-white transition hover:bg-brand-700"
               >
                 Official Form 990 PDF
               </a>
@@ -185,7 +185,7 @@ export function OrgDetail() {
               href={`https://projects.propublica.org/nonprofits/organizations/${org.ein}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-block rounded-lg px-4 py-2 font-medium text-emerald-700 ring-1 ring-emerald-200 transition hover:bg-emerald-50"
+              className="inline-block rounded-lg px-4 py-2 font-medium text-brand-700 ring-1 ring-brand-200 transition hover:bg-brand-50"
             >
               View on ProPublica Nonprofit Explorer
             </a>
@@ -195,7 +195,7 @@ export function OrgDetail() {
               href="https://apps.irs.gov/app/eos/"
               target="_blank"
               rel="noreferrer"
-              className="inline-block rounded-lg px-4 py-2 font-medium text-emerald-700 ring-1 ring-emerald-200 transition hover:bg-emerald-50"
+              className="inline-block rounded-lg px-4 py-2 font-medium text-brand-700 ring-1 ring-brand-200 transition hover:bg-brand-50"
             >
               IRS Tax Exempt Organization Search
             </a>

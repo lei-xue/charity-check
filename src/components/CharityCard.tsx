@@ -10,7 +10,7 @@ export function CharityCard({ org }: { org: Charity }) {
     <li>
       <Link
         to={`/org/${org.ein}`}
-        className="block h-full rounded-xl bg-white p-5 ring-1 ring-slate-200 transition hover:shadow-sm hover:ring-emerald-400"
+        className="block h-full rounded-xl bg-white p-5 ring-1 ring-slate-200 transition hover:shadow-sm hover:ring-brand-400"
       >
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-semibold leading-snug text-slate-900">{org.name}</h3>

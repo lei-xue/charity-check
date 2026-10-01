@@ -5,7 +5,7 @@ import { allStates, charities, getCauseSummaries } from '../data/charities'
 import { filterCharities, type CharityFilters } from '../lib/query'
 
 const SELECT_CLASS =
-  'w-full rounded-lg border-0 bg-white px-3 py-2 text-sm text-slate-900 ring-1 ring-slate-300 focus:ring-2 focus:ring-emerald-500'
+  'w-full rounded-lg border-0 bg-white px-3 py-2 text-sm text-slate-900 ring-1 ring-slate-300 focus:ring-2 focus:ring-brand-500'
 const LABEL_CLASS = 'block text-xs font-semibold uppercase tracking-wide text-slate-500'
 
 function numberParam(raw: string | null): number | undefined {
@@ -152,7 +152,7 @@ export function Browse() {
           <button
             type="button"
             onClick={clearFilters}
-            className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-700 ring-1 ring-emerald-200 transition hover:bg-emerald-50"
+            className="rounded-lg px-3 py-1.5 text-sm font-medium text-brand-700 ring-1 ring-brand-200 transition hover:bg-brand-50"
           >
             Clear filters
           </button>
@@ -167,7 +167,7 @@ export function Browse() {
             <button
               type="button"
               onClick={clearFilters}
-              className="mt-4 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-700"
+              className="mt-4 rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-700"
             >
               Clear all filters
             </button>
@@ -183,7 +183,7 @@ export function Browse() {
 
       <p className="text-sm text-slate-500">
         Looking for a specific nonprofit? Learn how the data is collected on the{' '}
-        <Link to="/about" className="font-medium text-emerald-700 hover:underline">
+        <Link to="/about" className="font-medium text-brand-700 hover:underline">
           About page
         </Link>
         .

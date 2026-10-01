@@ -1,4 +1,4 @@
-const ALLOWED_ORIGINS = new Set(['https://leixue.dev', 'http://127.0.0.1:4188', 'http://localhost:5173'])
+const ALLOWED_ORIGINS = new Set(['https://leixue.dev', 'https://charitycheck.leixue.dev', 'https://charity-check.pages.dev', 'http://127.0.0.1:4188', 'http://localhost:5173'])
 const UPSTREAM = 'https://projects.propublica.org/nonprofits/api/v2'
 const MAX_BYTES = 2_000_000
 

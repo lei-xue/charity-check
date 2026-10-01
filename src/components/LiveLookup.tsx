@@ -5,7 +5,7 @@ import { classifyEinQuery, formatEin, formatMoney, formatTaxPeriod } from '../li
 import { lookup, type LookupPage } from '../lib/lookup'
 
 type Status = 'idle' | 'loading' | 'invalid' | 'error' | 'done'
-const BUTTON = 'rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 disabled:opacity-60'
+const BUTTON = 'rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60'
 
 export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: string; searchQuery?: string }) {
   const [typedQuery, setTypedQuery] = useState(initialQuery)
@@ -77,7 +77,7 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
           <input type="text" value={typedQuery} onChange={event => {invalidate(); setStatus('idle'); setData(null); setTypedQuery(event.target.value)}}
             placeholder="Organization name or XX-XXXXXXX" aria-label="EIN or organization name"
             aria-invalid={status === 'invalid'} aria-describedby={status === 'invalid' ? 'lookup-message' : undefined}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:ring-2 focus:ring-emerald-500" />
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:ring-2 focus:ring-brand-500" />
           <button type="submit" disabled={!query.trim()} className={BUTTON}>Look up</button>
         </form>
       ) : (
@@ -88,7 +88,7 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
       {status === 'loading' && (
         <div className="mt-3 flex items-center gap-3">
           <p role="status" className="text-sm text-slate-500">Contacting ProPublica…</p>
-          <button type="button" onClick={() => {invalidate(); setStatus('idle')}} className="text-sm text-emerald-700 underline">Cancel lookup</button>
+          <button type="button" onClick={() => {invalidate(); setStatus('idle')}} className="text-sm text-brand-700 underline">Cancel lookup</button>
         </div>
       )}
       {(status === 'invalid' || status === 'error') && (
@@ -111,9 +111,9 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
                 <p className="mt-1 text-sm text-slate-500">EIN {formatEin(result.ein)} · {result.location || 'Location not listed'} · {result.cause}{result.is501c3 ? ' · 501(c)(3) (as reported)' : ''}</p>
                 {(result.revenue !== null || result.assets !== null) && <p className="mt-1 text-sm text-slate-600">Revenue {result.revenue === null ? 'Not reported' : formatMoney(result.revenue)} · Assets {result.assets === null ? 'Not reported' : formatMoney(result.assets)} · Tax period {formatTaxPeriod(result.taxPeriod)}</p>}
                 <p className="mt-1 text-sm">
-                  <a href={`https://projects.propublica.org/nonprofits/organizations/${String(result.ein).padStart(9,'0')}`} target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">View source record →</a>
-                  {charities.some(org => org.ein === result.ein) && <>{' · '}<Link to={`/org/${result.ein}`} className="text-emerald-700 hover:underline">View local snapshot</Link></>}
-                  {result.pdfUrl && <>{' · '}<a href={result.pdfUrl} target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline">Form 990 PDF</a></>}
+                  <a href={`https://projects.propublica.org/nonprofits/organizations/${String(result.ein).padStart(9,'0')}`} target="_blank" rel="noreferrer" className="font-medium text-brand-700 hover:underline">View source record →</a>
+                  {charities.some(org => org.ein === result.ein) && <>{' · '}<Link to={`/org/${result.ein}`} className="text-brand-700 hover:underline">View local snapshot</Link></>}
+                  {result.pdfUrl && <>{' · '}<a href={result.pdfUrl} target="_blank" rel="noreferrer" className="text-brand-700 hover:underline">Form 990 PDF</a></>}
                 </p>
               </li>
             ))}
@@ -122,7 +122,7 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
             <button type="button" disabled={data.page===0} onClick={() => void run(submitted,data.page-1)} className={BUTTON}>Previous source page</button>
             <button type="button" disabled={data.page+1>=data.pages} onClick={() => void run(submitted,data.page+1)} className={BUTTON}>Next source page</button>
           </nav>}
-          <a href={sourceSearch} target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm text-emerald-700 underline">Continue on ProPublica</a>
+          <a href={sourceSearch} target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm text-brand-700 underline">Continue on ProPublica</a>
         </div>
       )}
     </section>
