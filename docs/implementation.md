@@ -104,6 +104,18 @@ The first deployment's health/security checks passed but real queries returned 5
 - Separate real Chromium execution against the same integrated frontend and deployed Worker, with **no API mocks**: `Red Cross` reported 190 matches and eight pages, with 25 records displayed on each of pages one and two; `04-2263040` returned one matching record. Three Worker requests, zero AllOrigins requests, zero page errors. Tested mobile result state without horizontal page overflow.
 - Worker readback: `/health` HTTP 200; unapproved origin HTTP 403; arbitrary `url` parameter HTTP 400; valid queries HTTP 200 with exact-origin CORS. The deployment command itself was not treated as acceptance.
 
-### Remaining acceptance gates
+### Remaining acceptance gates at the Phase 2 checkpoint
 
-The backend is deployed; the main frontend is built and locally verified but **not published or verified on its production URL**. No frontend URL/DNS/hosting change, Git commit or push was performed. Preserve the existing R2 policy unless the user explicitly chooses Pages. Full automated accessibility and manual screen-reader acceptance remain outstanding. Any new frontend origin requires an explicit Worker allowlist update and live CORS/browser verification.
+At the Phase 2 checkpoint, the backend was deployed and the main frontend was built and locally verified but **not published or verified on its production URL**. No frontend URL/DNS/hosting change, Git commit or push had been performed. At that point, automated accessibility and manual screen-reader acceptance remained outstanding. The later Phase 3 addendum below records the current local accessibility pass; publication/readback and human screen-reader acceptance remain open. Any new frontend origin requires an explicit Worker allowlist update and live CORS/browser verification.
+
+## Phase 3 addendum: local accessibility pass (not published)
+
+The next acceptance pass found and corrected low-contrast secondary text and a skipped heading level in Browse charity cards. It also added an automatically injected build timestamp and short commit SHA to the persistent footer so the live Pages build can be matched to its source commit. No dataset or runtime dependency was changed.
+
+- `npm test`: **74 passed, 0 failed**; `npm run lint`, `npm run build` and `git diff --check` passed.
+- The footer build marker includes the UTC build minute and an 8-character identifier sourced from `CF_PAGES_COMMIT_SHA`/`GITHUB_SHA` or the local Git HEAD; no package release version is fabricated.
+- Production-build Chromium + axe-core audit: **128 scans, 111 organization records, 0 violations, 0 page errors**. Checked Home, populated and empty Browse, About, a sample detail at 320/390/1024/1440px, plus all 111 detail routes at 390px. WCAG 2.0/2.1/2.2 A/AA and best-practice tags were enabled.
+- axe reports 4 incomplete contrast checks, all for Home text over the hero gradient (axe cannot determine gradient contrast). The actual configured gradient stops were separately measured: white text minimum 9.84:1 and brand-100 text minimum 7.76:1, both above 4.5:1.
+- Keyboard smoke check verified initial focus, keyboard navigation into Browse, announcement of the no-results state, and recovery to all 111 records using Clear filters. This is not a screen-reader test.
+- Reproducible harness: `docs/verification/verify-accessibility.mjs`; report: `docs/verification/accessibility-verification.json`. It reuses externally installed Playwright/axe via `PLAYWRIGHT_REQUIRE_FROM` and adds no app dependency.
+- **Still outstanding:** manual screen-reader acceptance and publication/readback of these local changes. Do not describe the production website as fixed until the build has been deployed and checked live.

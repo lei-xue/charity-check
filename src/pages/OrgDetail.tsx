@@ -21,7 +21,7 @@ function FinancialCard({ label, amount }: { label: string; amount: number | null
       <dd
         className={
           missing
-            ? 'mt-1 text-base font-medium text-slate-400'
+            ? 'mt-1 text-base font-medium text-slate-500'
             : 'mt-1 text-2xl font-bold text-slate-900'
         }
       >
@@ -121,7 +121,7 @@ export function OrgDetail() {
             <dd className="mt-0.5 text-slate-900">
               {causeFromNtee(org.nteeCode)}
               {org.nteeCode && (
-                <span className="ml-1 font-mono text-xs text-slate-400">({org.nteeCode})</span>
+                <span className="ml-1 font-mono text-xs text-slate-500">({org.nteeCode})</span>
               )}
             </dd>
           </div>

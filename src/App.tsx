@@ -92,6 +92,7 @@ export default function App() {
             </a>
             . Read more on the <Link to="/about" className="font-medium text-brand-700 hover:underline">About page</Link>.
           </p>
+          <p className="mt-2 text-xs">Version: {__APP_BUILD_VERSION__}</p>
         </div>
       </footer>
     </div>

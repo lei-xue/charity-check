@@ -157,3 +157,31 @@ test('the rendered brand mark matches the favicon and avoids certification image
     assert.ok(markup.includes(snippet), `the brand mark must draw a document and magnifier (${snippet})`)
   }
 })
+
+test('secondary text colour meets WCAG AA contrast on white and cream surfaces', () => {
+  const css = read('src/index.css')
+  const foreground = css.match(/--color-slate-500:\s*(#[\da-f]{6})/i)?.[1]
+  assert.ok(foreground, 'the secondary text colour must be explicitly set')
+  const luminance = (hex: string) => {
+    const channels = hex.slice(1).match(/.{2}/g)?.map((channel) => parseInt(channel, 16) / 255) ?? []
+    const [r, g, b] = channels.map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+  }
+  for (const background of ['#ffffff', '#faf7f0']) {
+    const ratio = (luminance(background) + 0.05) / (luminance(foreground) + 0.05)
+    assert.ok(ratio >= 4.5, `${foreground} on ${background} must reach 4.5:1, got ${ratio.toFixed(2)}:1`)
+  }
+  const orgDetail = read('src/pages/OrgDetail.tsx')
+  assert.match(orgDetail, /Not reported[\s\S]{0,100}text-slate-500|text-slate-500[\s\S]{0,100}Not reported/)
+  const charityCard = read('src/components/CharityCard.tsx')
+  assert.ok(charityCard.includes('<h2 className="font-semibold leading-snug text-slate-900">{org.name}</h2>'))
+  assert.ok(!charityCard.includes('<h3'), 'browse cards must not skip a heading level after the page h1')
+})
+
+test('site footer exposes a build timestamp and short commit identifier', () => {
+  const app = read('src/App.tsx')
+  const config = read('vite.config.ts')
+  assert.ok(app.includes('Version: {__APP_BUILD_VERSION__}'))
+  assert.ok(config.includes('CF_PAGES_COMMIT_SHA'))
+  assert.ok(config.includes("execFileSync('git', ['rev-parse', 'HEAD']"))
+})

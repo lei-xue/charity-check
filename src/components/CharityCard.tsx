@@ -13,7 +13,7 @@ export function CharityCard({ org }: { org: Charity }) {
         className="block h-full rounded-xl bg-white p-5 ring-1 ring-slate-200 transition hover:shadow-sm hover:ring-brand-400"
       >
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-semibold leading-snug text-slate-900">{org.name}</h3>
+          <h2 className="font-semibold leading-snug text-slate-900">{org.name}</h2>
           <span className="shrink-0 rounded-md bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-600">
             {formatEin(org.ein)}
           </span>

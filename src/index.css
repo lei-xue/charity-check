@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-slate-500: #5f7189;
   --color-brand-50: #fbf1f3;
   --color-brand-100: #f5dfe4;
   --color-brand-200: #ebbdc9;
