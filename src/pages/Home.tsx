@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { charities, getCauseSummaries, latestTaxYear, snapshotDateLabel } from '../data/charities'
+import { charities, datasetGeneratedDateLabel, getCauseSummaries, latestTaxYear } from '../data/charities'
 
 export function Home() {
   const [query, setQuery] = useState('')
@@ -76,7 +76,8 @@ export function Home() {
           </div>
         </dl>
         <p className="mt-3 text-sm text-slate-500">
-          Snapshot of public records taken {snapshotDateLabel()}. Figures are historical and
+          Dataset snapshot generated {datasetGeneratedDateLabel()}. Source records may have been
+          retrieved earlier; figures are historical and
           self-reported by the organizations — not a trust rating and not a confirmation of
           current IRS tax-exempt status.
         </p>

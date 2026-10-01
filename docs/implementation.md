@@ -120,3 +120,14 @@ The acceptance pass found and corrected low-contrast secondary text and a skippe
 - Reproducible harness: `docs/verification/verify-accessibility.mjs`; report: `docs/verification/accessibility-verification.json`. It reuses externally installed Playwright/axe via `PLAYWRIGHT_REQUIRE_FROM` and adds no app dependency.
 - GitHub readback confirmed the `Cloudflare Pages` check succeeded for the CharityCheck and Cinemate version commits. Live-browser readback matched their footers to the respective pushed SHAs (`171b1089`, `e3d833ba`). MindBridge and Money Clock were also confirmed to show their current origin/main identifiers (`2b208915`, `0415ce2`).
 - **Still outstanding:** human screen-reader acceptance. Automated axe and keyboard tests do not substitute for using a screen reader.
+
+## Phase 4 addendum: curated snapshot expansion and GLM-5.3 acceptance follow-ups
+
+Recorded October 1, 2026 (UTC). This addendum supersedes earlier present-tense references to the 111-record snapshot or to the frontend being unpublished; those passages remain as historical milestone records. The 500-record dataset was generated on this date, but cached source records may have been retrieved earlier. A generated-at timestamp is not a per-record retrieval date or current IRS status verification.
+
+- The curated snapshot contains 500 unique EINs: the original 111 entries plus 389 exact-EIN additions. `scripts/curated-expansion-manifest.json` pairs every added EIN with its source-reported legal name and the expected subsection/status codes. The fetcher checks requested/returned identity and expected name, subsection and status; it reuses a cached row only when those expectations match.
+- The manifest/test claims are scoped to committed snapshot data and refresh expectations; they do not establish present-day IRS status. For source-reported classification, see the organization’s snapshot fields and the About-page limitations. Current tax-exempt status must be checked directly with the IRS.
+- `npm run data:fetch -- --retry-misses` retries only cached zero-result entries while preserving successful cache rows. `--refresh` remains the explicit full-cache refresh. An incomplete or duplicate run exits nonzero and leaves the committed complete snapshot unchanged.
+- Fetch safety helpers are covered offline in `tests/fetch-charities.test.ts`: cache expectation checks, miss retry behavior, EIN deduplication, and complete-snapshot gating. `tests/schema.test.ts` now says snapshot-reported 501(c)(3), rather than claiming to establish current IRS status.
+- A successful zero-result live lookup now produces one guidance message, with wording appropriate to a name versus EIN query and an IRS TEOS link; the overlapping generic zero-results summary is suppressed.
+- `npm test`, lint, build, diff checks, and production-browser checks were rerun for this follow-up. The release commit and live Cloudflare Pages footer SHA are recorded after deployment.

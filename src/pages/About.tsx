@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { charities, snapshotDateLabel } from '../data/charities'
+import { charities, datasetGeneratedDateLabel } from '../data/charities'
 
 export function About() {
   return (
@@ -35,8 +35,9 @@ export function About() {
         </p>
         <p className="mt-2 text-slate-600">
           The curated snapshot of {charities.length} selected U.S. charitable organizations is not a
-          complete registry. It was captured on {snapshotDateLabel()}, so figures reflect the most
-          recent filing available at that moment, not real-time data. The optional broader lookup
+          complete registry. This dataset snapshot was generated on {datasetGeneratedDateLabel()};
+          records may have been retrieved earlier, and figures reflect each organization&apos;s most
+          recent filing available in the source data, not real-time data. The optional broader lookup
           queries the same API through our bounded Cloudflare Worker. Submitting sends your query
           to Cloudflare and ProPublica; local browsing does not. Name results retain every record
           on each source page, with Previous/Next navigation. ProPublica caps broad searches at

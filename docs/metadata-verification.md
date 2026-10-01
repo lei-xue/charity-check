@@ -1,11 +1,6 @@
 # Metadata and layout maintenance — local verification
 
-This report covers one approved maintenance pass on the CharityCheck frontend:
-desktop Browse filter alignment, narrow-width header overflow, the original
-burgundy brand mark (header + favicon), and static document/social metadata.
-Everything below is local. Nothing was committed, pushed or deployed, and no
-other repository was touched. The 111 curated JSON source records, the
-September 20, 2026 snapshot and all existing features are preserved.
+This report records the earlier local metadata/layout maintenance pass. Its references to 111 records and unpublished assets describe that historical checkpoint only; the Phase 4 addendum in `docs/implementation.md` records the current 500-record deployed state.
 
 ## Changes
 

@@ -5,9 +5,11 @@ import { test } from 'node:test'
 // Schema test over the REAL generated dataset (not a fixture).
 const raw = readFileSync(new URL('../src/data/charities.json', import.meta.url), 'utf8')
 const charities: unknown = JSON.parse(raw)
-const expansionEins: number[] = JSON.parse(
-  readFileSync(new URL('../scripts/curated-expansion-eins.json', import.meta.url), 'utf8'),
-)
+const expansionManifest: {
+  expectedSubsectionCode: number
+  expectedStatusCode: number
+  records: { ein: number; name: string; subsectionCode: number }[]
+} = JSON.parse(readFileSync(new URL('../scripts/curated-expansion-manifest.json', import.meta.url), 'utf8'))
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -48,11 +50,16 @@ test('EINs are unique', () => {
   assert.equal(new Set(eins).size, eins.length, 'duplicate EINs found')
 })
 
-test('all expansion EINs resolve to current 501(c)(3) records', () => {
-  const byEin = new Map((charities as { ein: number; subsectionCode: number }[]).map((org) => [org.ein, org]))
-  assert.equal(expansionEins.length, 389)
-  for (const ein of expansionEins) {
-    assert.equal(byEin.get(ein)?.subsectionCode, 3, `EIN ${ein} must be present as 501(c)(3)`)
+test('all expansion EINs match their named, snapshot-reported 501(c)(3) records', () => {
+  const byEin = new Map((charities as { ein: number; name: string; subsectionCode: number }[]).map((org) => [org.ein, org]))
+  assert.equal(expansionManifest.records.length, 389)
+  assert.equal(expansionManifest.expectedSubsectionCode, 3)
+  assert.equal(expansionManifest.expectedStatusCode, 1)
+  for (const record of expansionManifest.records) {
+    const snapshot = byEin.get(record.ein)
+    assert.equal(snapshot?.subsectionCode, record.subsectionCode, `EIN ${record.ein} subsection must match the manifest`)
+    assert.equal(snapshot?.subsectionCode, 3, `EIN ${record.ein} snapshot should report 501(c)(3)`)
+    assert.equal(snapshot?.name, record.name, `EIN ${record.ein} name must match the manifest`)
   }
 })
 

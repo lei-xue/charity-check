@@ -1,0 +1,2341 @@
+{
+  "source": "ProPublica Nonprofit Explorer API v2; legal names and subsection codes from this committed snapshot",
+  "expectedSubsectionCode": 3,
+  "expectedStatusCode": 1,
+  "records": [
+    {
+      "ein": 746077505,
+      "name": "Performing Arts Houston",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 810879714,
+      "name": "Cavod Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 454372479,
+      "name": "Performing Arts Academy",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 882946400,
+      "name": "Heartland Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 271169605,
+      "name": "Childrens Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 824340374,
+      "name": "Constellation Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 261914415,
+      "name": "Performing Arts Academy",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 873316165,
+      "name": "Westmoreland Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 862806815,
+      "name": "Encore Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 990510723,
+      "name": "Kaleidoscope Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 262267712,
+      "name": "Jiva Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 473570825,
+      "name": "Limelight Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 200491702,
+      "name": "Soorya Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 462808267,
+      "name": "Boerne Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 932705298,
+      "name": "Jubilee Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 912020487,
+      "name": "Meta Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851218737,
+      "name": "Friction Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 731479893,
+      "name": "Oklahoma Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 871197059,
+      "name": "Eden Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 992401644,
+      "name": "Rgv Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851341827,
+      "name": "Omega Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851715518,
+      "name": "Nulyphe Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 831822516,
+      "name": "Limitless Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 452130842,
+      "name": "Lucent Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 813812807,
+      "name": "Acires Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 393913226,
+      "name": "Apex Performing Arts",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 822948311,
+      "name": "Bwi Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 521051044,
+      "name": "Hispanic Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 464511347,
+      "name": "Opportunity Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 882008090,
+      "name": "Ohio Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 863398414,
+      "name": "Kaleidoscope Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 201261404,
+      "name": "Frontier Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 208540050,
+      "name": "Islamic Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 431220528,
+      "name": "Micds Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 431977563,
+      "name": "Stars Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 831403652,
+      "name": "Fredk Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 752106637,
+      "name": "Tsrhc Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 203100594,
+      "name": "Iranian Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 936026691,
+      "name": "Jefferson Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 870641356,
+      "name": "Zambias Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 364390648,
+      "name": "Empower Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 833738710,
+      "name": "Rosebud Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 208934863,
+      "name": "Fleck Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 383564248,
+      "name": "Blossomtime Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 800241033,
+      "name": "Spanish Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 752831556,
+      "name": "Swapa Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 474842334,
+      "name": "Tk Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 376741691,
+      "name": "Rzepa Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 363981605,
+      "name": "Devry Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 260440332,
+      "name": "Srcc Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 562306640,
+      "name": "Pvr Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 202938480,
+      "name": "Carh Scholarship Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 351863827,
+      "name": "Shafer & Freeman Lakes Environmental Conservation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 994731578,
+      "name": "Environmental Conservation And Education",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 262933956,
+      "name": "Environmental Conservation Organization Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 834300559,
+      "name": "Friends Of Environmental Conservation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 922183797,
+      "name": "Frederick Environmental Conservation Organization Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 161602276,
+      "name": "Environmental Education And Conservation Global Incorporated",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 141950435,
+      "name": "Howard County Environmental & Conservation Education Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 334436148,
+      "name": "Greenx Environment And Conservation Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 800862283,
+      "name": "Enviromental And Energy Conservation Foundation Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 300100462,
+      "name": "Bijagual Center For Environmental Education And Conservation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 823229220,
+      "name": "Roxborough Park Foundation Conservation And Environmental Edu",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 452905699,
+      "name": "Environment & Coral Reef Conservation Foundation Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 161635274,
+      "name": "Environmental Education Foundation Of Soil And Water Conservation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 205782221,
+      "name": "Westland Homeowners Comm For Environmental Conversation & Smart",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 141737114,
+      "name": "Northeastern Forest Alliance",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 932529470,
+      "name": "Stolen Lands Community Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 680223143,
+      "name": "Placer Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 411713652,
+      "name": "Minnesota Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943140861,
+      "name": "Columbia Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911413484,
+      "name": "Capitol Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 721387424,
+      "name": "Freshwater Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 10769456,
+      "name": "Ventura Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 770077084,
+      "name": "Ag Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911484518,
+      "name": "Nisqually Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911533402,
+      "name": "Skagit Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 223073770,
+      "name": "Aquidneck Land Trust",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 460594403,
+      "name": "Kingdom Animalia Exotic Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 333467585,
+      "name": "Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 873938437,
+      "name": "No Animals Left Behind Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 862343706,
+      "name": "Who Rescued Who Animal Rescue Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 472321197,
+      "name": "Animal Reskue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 334993574,
+      "name": "Seaside Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 250325750,
+      "name": "Humane Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 920057621,
+      "name": "Juneau Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 232180310,
+      "name": "Animal Rescue Incorporated",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 272868265,
+      "name": "Animal Rescue Project",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 844580695,
+      "name": "Runaways Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 463019265,
+      "name": "Yaqui Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943424576,
+      "name": "Abandoned Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 260163239,
+      "name": "Phoenix Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 383058537,
+      "name": "Kalamazoo Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 942711748,
+      "name": "Native Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 814541947,
+      "name": "Piedmont Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943246994,
+      "name": "Hopalong Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 462204356,
+      "name": "Animal Rescue Partners",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 472180236,
+      "name": "Animal Rescue Mission",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 270244848,
+      "name": "Starfish Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 205240184,
+      "name": "Heal Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 651189377,
+      "name": "Beacon Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 382820050,
+      "name": "Wag Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 474661946,
+      "name": "Wise Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 474564762,
+      "name": "Parkers Animal Rescue",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 333526758,
+      "name": "Stay Healthy Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 831838249,
+      "name": "Caring Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 223914738,
+      "name": "Pomona Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 60897105,
+      "name": "Community Health Center Incorporated",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 386005550,
+      "name": "Hillsdale Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 680165855,
+      "name": "Shasta Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 770425496,
+      "name": "Aria Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 421374894,
+      "name": "Siouxland Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 860893305,
+      "name": "Sunset Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 133706365,
+      "name": "Apicha Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 262583954,
+      "name": "Roots Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 273795179,
+      "name": "Berks Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 454960453,
+      "name": "Portland Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 481302204,
+      "name": "Crescent Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 270600887,
+      "name": "Universal Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 202379419,
+      "name": "Loudoun Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 370961830,
+      "name": "Community Health Improvement Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 812171085,
+      "name": "My Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 260223749,
+      "name": "Chambers Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 920147354,
+      "name": "Interior Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 271092132,
+      "name": "Fairfield Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 821598439,
+      "name": "Access Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 202509287,
+      "name": "Lanai Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 273912808,
+      "name": "Seward Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 383692646,
+      "name": "Asher Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 832558659,
+      "name": "Blessing Community Health Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 135562265,
+      "name": "Legal Aid Society",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 362754650,
+      "name": "Legal Aid Chicago",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 381850908,
+      "name": "Lakeshore Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 421079227,
+      "name": "Iowa Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 251192139,
+      "name": "Summit Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 630341366,
+      "name": "Legal Aid Society",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 863134470,
+      "name": "Skagit Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911682766,
+      "name": "Sound Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911945347,
+      "name": "Timberland Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 850931523,
+      "name": "Peoples Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851365069,
+      "name": "Foreclosure Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 872215292,
+      "name": "Liberty Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 850832245,
+      "name": "Saef Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 472487444,
+      "name": "Spartan Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851452314,
+      "name": "Asian Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 332523731,
+      "name": "Legal Aid Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 853892033,
+      "name": "Legal Aid Network",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 392526503,
+      "name": "Washington Legal Aid Llc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 20484379,
+      "name": "603 Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 231892464,
+      "name": "Pennsylvania Legal Aid Network",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 741537787,
+      "name": "Lone Star Legal Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 42446242,
+      "name": "Community Legal Aid Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 520591621,
+      "name": "Legal Aid Bureau Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 540884513,
+      "name": "Legal Aid Justice Center",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 951994337,
+      "name": "Community Legal Aid Socal",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 942783401,
+      "name": "Legal Aid At Work",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 581506991,
+      "name": "Banks-jackson Food Bank Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 20738229,
+      "name": "Food Share Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 861305334,
+      "name": "Bank Street Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 581514800,
+      "name": "Manna Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 860505273,
+      "name": "United Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 742244826,
+      "name": "Weld Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 751813170,
+      "name": "Community Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 237111782,
+      "name": "Yolo Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 471654162,
+      "name": "Sahuarita Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 842209131,
+      "name": "Edmonds Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 10545734,
+      "name": "Augusta Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 841642388,
+      "name": "Lynnwood Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 920150918,
+      "name": "Matsu Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 824153719,
+      "name": "Sharenet Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 462588355,
+      "name": "Fish Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 841569247,
+      "name": "Durango Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911347733,
+      "name": "Zillah Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 821087262,
+      "name": "Harrison Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911999844,
+      "name": "Mukilteo Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 912070485,
+      "name": "Granger Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 465630025,
+      "name": "Cashmere Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911269359,
+      "name": "Othello Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 843467671,
+      "name": "Storehouse Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 464461348,
+      "name": "Columbia Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 923060536,
+      "name": "Fairview Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 811522042,
+      "name": "Mason Food Bank",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 863004558,
+      "name": "Livermore Affordable Housing",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 411680329,
+      "name": "Affordable Housing Connections",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 541860225,
+      "name": "Richmond Affordable Housing",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 311669940,
+      "name": "Affordable Housing Continuum",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 330489568,
+      "name": "Affordable Housing Clearinghouse",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 680408068,
+      "name": "Affordable Housing Assistance",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 954404014,
+      "name": "Affordable Housing Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 477282311,
+      "name": "Affordable Housing Tr",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 954837705,
+      "name": "Affordable Housing Solutions",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 842167415,
+      "name": "Affordable Housing Association",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 821921794,
+      "name": "Affordable Housing Usa",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 814449829,
+      "name": "Genesis Affordable Housing",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 274393012,
+      "name": "Affordable Housing Initiatives",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 843858698,
+      "name": "Appalachian Affordable Housing",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 933710196,
+      "name": "Affordable Housing Initiative",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 464874831,
+      "name": "Affordable American Housing",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 883772029,
+      "name": "Affordable Community Housing",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943333439,
+      "name": "Affordable Housing Alternatives",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 812816200,
+      "name": "Affordable Housing Care",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 821544564,
+      "name": "Affordable Housing Cdc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 992663743,
+      "name": "Affordable Housing Collaborative",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 371820598,
+      "name": "Affordable Housing Connection",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 270136485,
+      "name": "Affordable Housing Initiatives",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 822987108,
+      "name": "Affordable Housing Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 832528710,
+      "name": "Affordable Housing Now",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 843376901,
+      "name": "Affordable Housing Nw",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 822686706,
+      "name": "Tpga Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 473837240,
+      "name": "Comprehensive Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 332013900,
+      "name": "Divine Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 393919010,
+      "name": "Kjv Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 273770228,
+      "name": "Aba Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 823245695,
+      "name": "Veteran Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 853122470,
+      "name": "Connor Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 833911729,
+      "name": "Disaster Relief Haulers",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851890487,
+      "name": "Flex Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 333508603,
+      "name": "Gps Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 833869269,
+      "name": "Hope Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 335017961,
+      "name": "Krishna Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 883598070,
+      "name": "Mariposa Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 331385062,
+      "name": "Auvil Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 834432550,
+      "name": "Calvary Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 475130651,
+      "name": "Disaster Relief Charity",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 332274053,
+      "name": "Forward Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 414833200,
+      "name": "Pt Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 331857528,
+      "name": "R3 Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 421993913,
+      "name": "Grateness Disaster Relief",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 264789907,
+      "name": "Austin Disaster Relief Network",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 813605763,
+      "name": "Rouses Disaster Relief Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 203793783,
+      "name": "Sysco Disaster Relief Foundationinc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 843890903,
+      "name": "Nexthome Disaster Relief Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 203664119,
+      "name": "Aft Disaster Relief Fund",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 455124413,
+      "name": "Cbre Disaster Relief Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 261364376,
+      "name": "Youth Development Network",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 251751227,
+      "name": "Allegheny Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 455429765,
+      "name": "Youth Opportunities Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 333480943,
+      "name": "Dugout Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 631073577,
+      "name": "Youth Development Association",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 333082169,
+      "name": "Rr Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 394841506,
+      "name": "Arrington Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 814393721,
+      "name": "Champions Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 383297221,
+      "name": "Intergy Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 814183420,
+      "name": "Kidzplay Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 991399202,
+      "name": "Peacock Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 331706186,
+      "name": "Quickplayfc Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 471253861,
+      "name": "Striders Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 412919281,
+      "name": "Tallmadge Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 922234597,
+      "name": "Tam Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 821958026,
+      "name": "Trailblazer Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 455361795,
+      "name": "Youth Development Initiative",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 871533199,
+      "name": "Youth Development Now",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 465505342,
+      "name": "Youth Kingdom Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 824364535,
+      "name": "Be - Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 994113955,
+      "name": "Compass Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 415323709,
+      "name": "Innerrise Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 415369064,
+      "name": "King Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 422484399,
+      "name": "Northbridge Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 422117097,
+      "name": "Phenom Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 395099661,
+      "name": "Pride Youth Development",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 911218639,
+      "name": "Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 822636426,
+      "name": "Family Benevolence Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 362167940,
+      "name": "Metropolitan Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 820653875,
+      "name": "Wesley Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 951977659,
+      "name": "Wayfinder Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 941156622,
+      "name": "Compass Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 520730225,
+      "name": "Family Services Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 420680411,
+      "name": "Hillcrest Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 26012230,
+      "name": "Monadnock Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 364468891,
+      "name": "Phalanx Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 370673515,
+      "name": "Spero Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 381358388,
+      "name": "Oakland Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 560689235,
+      "name": "Family Services Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 910567261,
+      "name": "Wellspring Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 237088243,
+      "name": "Alameda Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 251793268,
+      "name": "Mhy Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 232128881,
+      "name": "Cobys Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 314379497,
+      "name": "Jewish Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 440545829,
+      "name": "Jewish Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943108205,
+      "name": "Family Support Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 237310008,
+      "name": "Tricity Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 382072348,
+      "name": "Catholic Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 462090563,
+      "name": "Victory Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 752028254,
+      "name": "Interfaith Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 830408830,
+      "name": "Greenlight Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 392072681,
+      "name": "Wraparound Family Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 813667892,
+      "name": "Heart-aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 474235863,
+      "name": "Barnabas Aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 841667485,
+      "name": "Comfort Aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 463973114,
+      "name": "International Aid Charity",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943008383,
+      "name": "Philippine International Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 382323550,
+      "name": "International Aid Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 923537964,
+      "name": "Dignity Aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 582112419,
+      "name": "Aid International Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 204208954,
+      "name": "Fiji Aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 271087993,
+      "name": "Food Aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 730720227,
+      "name": "International Christian Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 204295113,
+      "name": "Jordan International Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 946102593,
+      "name": "International Farmers Aid Association",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 30515558,
+      "name": "Direct Aid International Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 455591559,
+      "name": "Sovereign Aid International Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 205037351,
+      "name": "Missionserv International Aid Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 264700883,
+      "name": "Agricultral Aid International Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 262658064,
+      "name": "Compassion Aid International Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 842064283,
+      "name": "International Community Development Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 611388305,
+      "name": "International Medical Aid Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 680641159,
+      "name": "Mercy Care Aid International",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 473899622,
+      "name": "Remote Aid International Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 832249383,
+      "name": "Ohana One International Surgical Aid",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 223456251,
+      "name": "International Childrens Aid Foundation Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 50625800,
+      "name": "International Aid Services - Usa Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943255699,
+      "name": "International Aid For Korean Animals",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 833857210,
+      "name": "Applewood Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 331494958,
+      "name": "Douglass Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 872107636,
+      "name": "Hots Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 953510055,
+      "name": "California Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 943007979,
+      "name": "Marin Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 731554474,
+      "name": "Tulsa Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 237315673,
+      "name": "Oregon Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 860348306,
+      "name": "Arizona Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 990261283,
+      "name": "Hawaii Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 470645958,
+      "name": "Omaha Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 741934031,
+      "name": "Austin Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 383333202,
+      "name": "Kalamazoo Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 200253310,
+      "name": "Pasadena Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 470769903,
+      "name": "Nebraska Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 222804785,
+      "name": "Delaware Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 396038248,
+      "name": "Madison Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 222712160,
+      "name": "Vermont Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 840920862,
+      "name": "Rose Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 770629281,
+      "name": "Brawley Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 561380796,
+      "name": "Triangle Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 237284004,
+      "name": "Toledo Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 256032032,
+      "name": "Erie Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 382826563,
+      "name": "Marquette Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 113422729,
+      "name": "Brooklyn Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 920155067,
+      "name": "Alaska Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 363978733,
+      "name": "Dupage Community Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 873986701,
+      "name": "Science Education Research Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 813263770,
+      "name": "Foundation For Sciences And Research",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 831588945,
+      "name": "Xsci -experiential Science Education And Research Foundation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 811350593,
+      "name": "Amir D Aczel Foundation For Education And Research In Science",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 463810003,
+      "name": "Foundation For Investing In Research On Seti Science And Techn",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 522199055,
+      "name": "Maryland Public Policy Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 311739622,
+      "name": "Piedmont Public Policy Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 261704791,
+      "name": "Pelican Institute For Public Policy",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 541870848,
+      "name": "Virginia Institute For Public Policy",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 475566667,
+      "name": "Kent County Public Policy Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 530218495,
+      "name": "American Enterprise Institute For Public Policy Research",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 860597661,
+      "name": "Barry Goldwater Institute For Public Policy Research",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 475444492,
+      "name": "Asian American Institute For Public Policy Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 262887573,
+      "name": "Kempthorne Institute For Public Policy & Philanthropy Corporation",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 262639114,
+      "name": "John K Maciver Institute For Public Policy Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 204782980,
+      "name": "Los Angeles African American Womens Public Policy Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 202394337,
+      "name": "Hall Institute For New Jersey Public Policy Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 930967390,
+      "name": "Institute For Science Engineering And Public Policy Incorporated",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 266265950,
+      "name": "Beacon Hill Institute For Public Policy Research",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 20475074,
+      "name": "Christian Outreach Religious Assc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 383243443,
+      "name": "Din Al-fitrah Religious Leadership Alliance Comm Outreach Services",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 474987299,
+      "name": "Silent Outreach Ministries",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 462855423,
+      "name": "Sudden Impact Ministries For Christ",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 812163151,
+      "name": "Community Outreach Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 471202801,
+      "name": "Chin Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 931273109,
+      "name": "Community Ministry Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 993525633,
+      "name": "Faith Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 413887355,
+      "name": "Una Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 752613843,
+      "name": "Community Outreach Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 900601702,
+      "name": "Community Outreach Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 934301548,
+      "name": "Covenant Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 460579267,
+      "name": "India Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 61830566,
+      "name": "Hope Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 561849530,
+      "name": "Christian Community Outreach Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 932574471,
+      "name": "Community Learning Ministry Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 472713178,
+      "name": "Community Wide Outreach Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 851399010,
+      "name": "Ab Patterson Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 391988973,
+      "name": "Community Crusaders Ministry Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 414817294,
+      "name": "911 Ministry Community Outreach",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 161564929,
+      "name": "Community Lutheran Ministry Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 423177675,
+      "name": "Community Worship Ministry Inc",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 921407994,
+      "name": "Helping Hands Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 821772818,
+      "name": "Marguerite Compassion Community Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 274692649,
+      "name": "Masterpiece Community Connection Ministry",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 222817365,
+      "name": "Science History Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 841215290,
+      "name": "Space Science Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 471714438,
+      "name": "Headwaters Science Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 881957694,
+      "name": "Paradox Science Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 394927178,
+      "name": "Science Accountability Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 274690007,
+      "name": "Science Communication Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    },
+    {
+      "ein": 931251321,
+      "name": "Science Integration Institute",
+      "subsectionCode": 3,
+      "expectedStatusCode": 1
+    }
+  ]
+}

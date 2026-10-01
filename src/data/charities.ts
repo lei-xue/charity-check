@@ -13,8 +13,8 @@ export interface DatasetMeta {
 
 export const datasetMeta = datasetMetaJson as DatasetMeta
 
-/** Human-readable snapshot date for the curated dataset. */
-export function snapshotDateLabel(): string {
+/** Human-readable dataset-generation date; individual source records may be older. */
+export function datasetGeneratedDateLabel(): string {
   const date = new Date(datasetMeta.generatedAt)
   if (Number.isNaN(date.getTime())) return 'unknown date'
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })

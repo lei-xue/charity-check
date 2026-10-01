@@ -45,7 +45,7 @@ try {
     await page.goto('https://charitycheck.test/')
     await page.getByRole('heading', { name: 'Check before you give.', exact: true }).waitFor()
     check(`${viewport.width}: English document`, await page.locator('html').getAttribute('lang'), 'en')
-    check(`${viewport.width}: snapshot date is stable across timezones`, await page.getByText(/Snapshot of public records taken September 20, 2026/).count(), 1)
+    check(`${viewport.width}: dataset-generation date is stable across timezones`, await page.getByText(/Dataset snapshot generated October 1, 2026/).count(), 1)
     check(`${viewport.width}: metadata does not certify current IRS status`, !(await page.locator('meta[name="description"]').getAttribute('content')).includes('verify a charity'))
     check(`${viewport.width}: cream canvas`, await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(250, 247, 240)')
     check(`${viewport.width}: burgundy search button`, await page.getByRole('button', { name: 'Search', exact: true }).evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(146, 44, 78)')
@@ -75,7 +75,7 @@ try {
       await navigate(`/org/${org.ein}`, org.name)
       const text = await page.locator('main').innerText()
       check(`${viewport.width}: detail preserves source EIN ${org.ein}`, text.includes(`EIN ${formatEin(org.ein)}`))
-      check(`${viewport.width}: detail snapshot date ${org.ein}`, text.includes('Snapshot captured September 20, 2026'))
+      check(`${viewport.width}: detail dataset-generation date ${org.ein}`, text.includes('Dataset snapshot generated October 1, 2026'))
       if (org.latestFiling) {
         check(`${viewport.width}: historical filing period ${org.ein}`, text.includes(`tax period ${formatTaxPeriod(org.latestFiling.taxPeriod)}`))
         for (const [label, key] of [['Total revenue', 'totalRevenue'], ['Total expenses', 'totalExpenses'], ['Total assets (year end)', 'totalAssets']]) {

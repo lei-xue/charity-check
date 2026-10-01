@@ -64,6 +64,7 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
     void run(query)
   }
   const sourceSearch = `https://projects.propublica.org/nonprofits/search?q=${encodeURIComponent(submitted || query)}`
+  const submittedIsEin = classifyEinQuery(submitted).kind === 'ein'
 
   return (
     <section aria-labelledby="live-lookup-heading" className="rounded-xl bg-white p-5 ring-1 ring-slate-200">
@@ -100,18 +101,17 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
       {status === 'done' && data?.total === 0 && (
         <div role="status" className="mt-3 space-y-2 text-sm text-slate-600">
           <p>No match found for that search. This does not mean the organization is not registered — searches can miss legal names or newly registered organizations.</p>
-          <p>Try its 9-digit EIN or exact IRS legal name. For an official tax-exempt status check, use the{' '}
+          <p>{submittedIsEin ? 'Check the organization’s legal name in the IRS search.' : 'Try its 9-digit EIN or exact IRS legal name.'} For an official tax-exempt status check, use the{' '}
             <a href="https://apps.irs.gov/app/eos/" target="_blank" rel="noreferrer" className="font-medium text-brand-700 underline hover:no-underline">
               IRS Tax Exempt Organization Search (TEOS)
             </a>.
           </p>
         </div>
       )}
-      {status === 'done' && data && (
+      {status === 'done' && data && data.total > 0 && (
         <div className="mt-4">
           <p role="status" className="text-sm text-slate-600">
-            {data.total === 0 ? 'No matching ProPublica record found. A missing record is not evidence of wrongdoing.' :
-              `Source page ${data.page + 1} of ${data.pages}: ${data.results.length} records; ${data.total.toLocaleString('en-US')} source-reported matches.`}
+            {`Source page ${data.page + 1} of ${data.pages}: ${data.results.length} records; ${data.total.toLocaleString('en-US')} source-reported matches.`}
           </p>
           {data.sourceLimit && <p className="mt-1 text-sm text-slate-500">ProPublica caps this search at 10,000 results; this is not a complete count of all possible matches. Narrow the name.</p>}
           <ul className="mt-2 divide-y divide-slate-100">

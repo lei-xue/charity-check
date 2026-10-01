@@ -5,9 +5,10 @@
 // - One search request (+ org detail, + tie-break details) per curated name
 // - 300ms delay between every request (politeness)
 // - Resumable: successful results and "no result" misses are cached in
-//   scripts/.fetch-state.json, so re-runs only fetch what is missing
-//   (pass --refresh to ignore the cache)
-// - Individual failures are logged and skipped; the script never throws
+//   scripts/.fetch-state.json; pass --retry-misses to retry only cached misses,
+//   or --refresh to ignore the entire cache.
+// - Individual failures are logged; an incomplete run exits nonzero and never
+//   replaces the last complete dataset.
 //
 // Matching notes (documented decisions, see README/report):
 // - Some curated names are acronyms or DBAs whose IRS legal name differs,
@@ -23,6 +24,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { cachedEntryOutcome, deduplicateCharities, isCompleteSnapshot } from './fetch-charities-core.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const STATE_FILE = path.join(ROOT, 'scripts', '.fetch-state.json')
@@ -113,7 +115,7 @@ const ENTRIES = [
   { label: 'Meals on Wheels America' },
   { label: 'Ronald McDonald House Charities' },
   { label: 'Big Brothers Big Sisters of America' },
-  { label: 'Girl Scouts of the USA (EIN 131624016)', ein: 131624016, expectedSubsectionCode: 3, expectedStatusCode: 1 },
+  { label: 'Girl Scouts of the USA (EIN 131624016)', ein: 131624016, expectedName: 'Girl Scouts Of The United States Of America', expectedSubsectionCode: 3, expectedStatusCode: 1 },
   { label: 'Scouting America', query: 'Boy Scouts of America' },
   { label: 'USO', query: 'United Service Organizations' },
   { label: 'Wounded Warrior Project' },
@@ -125,7 +127,7 @@ const ENTRIES = [
   { label: 'Americares' },
   { label: 'Save the Children', query: 'Save the Children Federation' },
   { label: 'UNICEF USA', query: 'United States Fund for UNICEF' },
-  { label: 'CARE USA (EIN 131685039)', ein: 131685039, expectedSubsectionCode: 3, expectedStatusCode: 1 },
+  { label: 'CARE USA (EIN 131685039)', ein: 131685039, expectedName: 'Cooperative For Assistance And Relief Everywhere Inc', expectedSubsectionCode: 3, expectedStatusCode: 1 },
   { label: 'Oxfam America' },
   { label: 'International Rescue Committee' },
   { label: 'Mercy Corps' },
@@ -280,6 +282,9 @@ async function resolveEntry(entry, label) {
     if (Number(organization.ein) !== Number(entry.ein)) {
       throw new Error(`Requested EIN ${entry.ein}, API returned ${organization.ein}`)
     }
+    if (entry.expectedName !== undefined && organization.name !== entry.expectedName) {
+      throw new Error(`EIN ${entry.ein} is named ${organization.name}, expected ${entry.expectedName}`)
+    }
     if (
       entry.expectedSubsectionCode !== undefined &&
       Number(organization.subsection_code) !== entry.expectedSubsectionCode
@@ -350,24 +355,36 @@ function orgMagnitude(detail) {
 
 async function main() {
   const refresh = process.argv.includes('--refresh')
+  const retryMisses = process.argv.includes('--retry-misses')
   await mkdir(path.dirname(OUT_FILE), { recursive: true })
 
-  const expansionEins = JSON.parse(
-    await readFile(path.join(ROOT, 'scripts', 'curated-expansion-eins.json'), 'utf8'),
+  const expansionManifest = JSON.parse(
+    await readFile(path.join(ROOT, 'scripts', 'curated-expansion-manifest.json'), 'utf8'),
   )
-  if (!Array.isArray(expansionEins) || expansionEins.some((ein) => !Number.isInteger(ein) || ein <= 0)) {
-    throw new Error('curated-expansion-eins.json must be an array of positive integer EINs')
+  const expansionRecords = expansionManifest?.records
+  if (
+    !Array.isArray(expansionRecords) ||
+    expansionRecords.some((record) =>
+      !Number.isInteger(record?.ein) || record.ein <= 0 ||
+      typeof record.name !== 'string' || !record.name.trim() ||
+      record.subsectionCode !== expansionManifest.expectedSubsectionCode ||
+      expansionManifest.expectedSubsectionCode !== 3 ||
+      expansionManifest.expectedStatusCode !== 1
+    )
+  ) {
+    throw new Error('curated-expansion-manifest.json must contain named EINs and the approved subsection/status expectations')
   }
-  if (new Set(expansionEins).size !== expansionEins.length) {
-    throw new Error('curated-expansion-eins.json contains duplicate EINs')
+  if (new Set(expansionRecords.map((record) => record.ein)).size !== expansionRecords.length) {
+    throw new Error('curated-expansion-manifest.json contains duplicate EINs')
   }
   const entries = [
     ...ENTRIES,
-    ...expansionEins.map((ein) => ({
-      label: `Expanded EIN ${String(ein).padStart(9, '0')}`,
-      ein,
-      expectedSubsectionCode: 3,
-      expectedStatusCode: 1,
+    ...expansionRecords.map((record) => ({
+      label: `Expanded EIN ${String(record.ein).padStart(9, '0')}`,
+      ein: record.ein,
+      expectedName: record.name,
+      expectedSubsectionCode: record.subsectionCode,
+      expectedStatusCode: expansionManifest.expectedStatusCode,
     })),
   ]
   if (entries.length !== EXPECTED_DATASET_SIZE) {
@@ -391,20 +408,19 @@ async function main() {
   for (const entry of entries) {
     const label = entry.label
     const cachedEntry = state[label]
-    const cacheMatchesExpectations = cachedEntry?.charity &&
-      (entry.expectedSubsectionCode === undefined || cachedEntry.charity.subsectionCode === entry.expectedSubsectionCode) &&
-      (entry.expectedStatusCode === undefined || cachedEntry.statusCode === entry.expectedStatusCode)
-    if (cacheMatchesExpectations) {
-      charities.push(cachedEntry.charity)
+    const cacheOutcome = cachedEntryOutcome(entry, cachedEntry, { retryMisses })
+    if (cacheOutcome.kind === 'cached') {
+      charities.push(cacheOutcome.charity)
       cached++
-      console.log(`cache ${label} -> ${cachedEntry.charity.name} (${cachedEntry.charity.ein})`)
+      console.log(`cache ${label} -> ${cacheOutcome.charity.name} (${cacheOutcome.charity.ein})`)
       continue
     }
-    if (cachedEntry?.miss) {
+    if (cacheOutcome.kind === 'miss') {
       noResults++
-      console.warn(`miss  ${label} -> ${cachedEntry.note}`)
+      console.warn(`miss  ${label} -> ${cacheOutcome.note}`)
       continue
     }
+    if (retryMisses && cachedEntry?.miss) delete state[label]
 
     try {
       const resolved = await resolveEntry(entry, label)
@@ -432,22 +448,12 @@ async function main() {
     }
   }
 
-  const uniqueCharities = []
-  const seenEins = new Set()
-  const duplicateEins = []
-  for (const charity of charities) {
-    if (seenEins.has(charity.ein)) {
-      duplicateEins.push(charity.ein)
-      continue
-    }
-    seenEins.add(charity.ein)
-    uniqueCharities.push(charity)
-  }
+  const { charities: uniqueCharities, duplicateEins } = deduplicateCharities(charities)
 
   // Preserve successful fetches for retries, but never replace a complete
   // dataset snapshot with a partial run.
   await writeFile(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`)
-  if (failed > 0 || noResults > 0 || duplicateEins.length > 0 || uniqueCharities.length !== EXPECTED_DATASET_SIZE) {
+  if (!isCompleteSnapshot({ charities: uniqueCharities, expectedCount: EXPECTED_DATASET_SIZE, failed, noResults, duplicateEins })) {
     console.error(
       `Dataset unchanged: expected ${EXPECTED_DATASET_SIZE} unique records, got ${uniqueCharities.length}; ` +
         `${failed} failed, ${noResults} no-results, ${duplicateEins.length} duplicate EINs. Rerun to retry failures.`,

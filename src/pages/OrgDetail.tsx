@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { BadgeList } from '../components/Badge'
 import { LiveLookup } from '../components/LiveLookup'
-import { charities, resolveCuratedRoute, snapshotDateLabel } from '../data/charities'
+import { charities, datasetGeneratedDateLabel, resolveCuratedRoute } from '../data/charities'
 import {
   causeFromNtee,
   classifyEinQuery,
@@ -108,7 +108,7 @@ export function OrgDetail() {
           <BadgeList badges={getBadges(org)} />
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          Snapshot captured {snapshotDateLabel()}: public records and historical self-reported Form 990 filings. This page is
+          Dataset snapshot generated {datasetGeneratedDateLabel()}: public records and historical self-reported Form 990 filings. This page is
           informational and is not a trust or legitimacy certification.
         </p>
         <dl className="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-3">

@@ -4,7 +4,7 @@ An English-only web application for inspecting public U.S. nonprofit records and
 
 ## Current features
 
-- A curated snapshot of 500 selected U.S. charitable organizations, captured on October 1, 2026.
+- A curated snapshot of 500 selected U.S. charitable organizations, generated October 1, 2026. Individual source records may have been retrieved earlier.
 - Local name, EIN and city search, with state, cause and revenue filters.
 - Organization profiles with source-reported classification, filing periods, historical financial figures and source links.
 - An optional ProPublica lookup from the existing Browse search, through a bounded first-party Cloudflare Worker. Submitting explicitly sends the query to Cloudflare and ProPublica; local filters do not apply upstream. Every record on each source page is retained, with Previous/Next navigation and a visible 10,000-result source cap.
@@ -31,6 +31,7 @@ The application uses React, TypeScript, Vite, Tailwind CSS and HashRouter. Vite'
 
 - `src/data/charities.json`: the committed curated records.
 - `src/data/dataset-meta.json`: source, snapshot timestamp and record count.
+- `scripts/curated-expansion-manifest.json`: the 389 added EINs, source-reported legal names, expected subsection and the status code required on a successful refresh. Names and EINs are pinned together to make the curated expansion auditable.
 - Source: [ProPublica Nonprofit Explorer API v2](https://projects.propublica.org/nonprofits/api).
 - Current exemption and deductibility verification: [IRS Tax Exempt Organization Search](https://apps.irs.gov/app/eos/).
 
@@ -42,6 +43,8 @@ Visitor EINs must contain nine digits or use `XX-XXXXXXX`; malformed input is no
 
 ```sh
 npm run data:fetch
+# Retry only entries previously cached as having no search results:
+npm run data:fetch -- --retry-misses
 ```
 
 This explicitly runs `scripts/fetch-charities.mjs`, contacts upstream sources and can replace the committed snapshot. Review the script and resulting record count, amounts, dates and URLs before committing a refresh. The Phase 0/1 milestone did **not** refresh or expand the dataset.
