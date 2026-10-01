@@ -49,7 +49,7 @@ test('document declares exactly one title and it is descriptive and truthful', (
 test('description is present, unique and does not claim certification', () => {
   const description = metaContentBy('name', 'description') ?? ''
   assert.ok(description.length >= 50, 'description must be descriptive')
-  assert.ok(description.includes('111'), 'description should state the curated dataset size truthfully')
+  assert.ok(description.includes('500'), 'description should state the curated dataset size truthfully')
   assert.match(description, /Informational only/, 'description must disclose the informational-only limit')
   assert.ok(!/verify a charity|certif|trust rating\b/i.test(description.replace('not a trust rating', '').replace('not a confirmation', '')), 'description must not claim certification or a trust rating')
 })

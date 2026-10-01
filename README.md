@@ -4,7 +4,7 @@ An English-only web application for inspecting public U.S. nonprofit records and
 
 ## Current features
 
-- A curated snapshot of 111 organizations, captured on September 20, 2026.
+- A curated snapshot of 500 selected U.S. charitable organizations, captured on October 1, 2026.
 - Local name, EIN and city search, with state, cause and revenue filters.
 - Organization profiles with source-reported classification, filing periods, historical financial figures and source links.
 - An optional ProPublica lookup from the existing Browse search, through a bounded first-party Cloudflare Worker. Submitting explicitly sends the query to Cloudflare and ProPublica; local filters do not apply upstream. Every record on each source page is retained, with Previous/Next navigation and a visible 10,000-result source cap.
