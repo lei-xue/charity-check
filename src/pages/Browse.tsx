@@ -4,9 +4,11 @@ import { LiveLookup } from '../components/LiveLookup'
 import { allStates, charities, getCauseSummaries } from '../data/charities'
 import { filterCharities, type CharityFilters } from '../lib/query'
 
-const SELECT_CLASS =
-  'w-full rounded-lg border-0 bg-white px-3 py-2 text-sm text-slate-900 ring-1 ring-slate-300 focus:ring-2 focus:ring-brand-500'
-const LABEL_CLASS = 'block text-xs font-semibold uppercase tracking-wide text-slate-500'
+const CONTROL_CLASS =
+  'mt-1 h-10 w-full min-w-0 rounded-lg border-0 bg-white px-3 text-sm text-slate-900 ring-1 ring-slate-300 focus:ring-2 focus:ring-brand-500'
+// Fixed min height keeps every field label on one 16px line so the controls
+// below them share the same vertical offset even at desktop grid widths.
+const LABEL_CLASS = 'block min-h-4 text-xs font-semibold uppercase tracking-wide text-slate-500'
 
 function numberParam(raw: string | null): number | undefined {
   if (raw === null || raw.trim() === '') return undefined
@@ -58,8 +60,8 @@ export function Browse() {
       </div>
 
       <section aria-label="Filters" className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="sm:col-span-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="flex min-w-0 flex-col sm:col-span-2">
             <label htmlFor="filter-q" className={LABEL_CLASS}>
               Search
             </label>
@@ -69,10 +71,10 @@ export function Browse() {
               value={q}
               onChange={(event) => updateParam('q', event.target.value)}
               placeholder="Name, EIN, or city"
-              className={`${SELECT_CLASS} mt-1`}
+              className={CONTROL_CLASS}
             />
           </div>
-          <div>
+          <div className="flex min-w-0 flex-col">
             <label htmlFor="filter-state" className={LABEL_CLASS}>
               State
             </label>
@@ -80,7 +82,7 @@ export function Browse() {
               id="filter-state"
               value={state}
               onChange={(event) => updateParam('state', event.target.value)}
-              className={`${SELECT_CLASS} mt-1`}
+              className={CONTROL_CLASS}
             >
               <option value="">All states</option>
               {allStates.map((stateCode) => (
@@ -90,7 +92,7 @@ export function Browse() {
               ))}
             </select>
           </div>
-          <div>
+          <div className="flex min-w-0 flex-col">
             <label htmlFor="filter-cause" className={LABEL_CLASS}>
               Cause
             </label>
@@ -98,7 +100,7 @@ export function Browse() {
               id="filter-cause"
               value={cause}
               onChange={(event) => updateParam('cause', event.target.value)}
-              className={`${SELECT_CLASS} mt-1`}
+              className={CONTROL_CLASS}
             >
               <option value="">All causes</option>
               {getCauseSummaries().map((summary) => (
@@ -108,34 +110,36 @@ export function Browse() {
               ))}
             </select>
           </div>
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              <label htmlFor="filter-min" className={LABEL_CLASS}>
-                Min revenue
-              </label>
-              <input
-                id="filter-min"
-                type="number"
-                min="0"
-                value={minRevenue}
-                onChange={(event) => updateParam('minRevenue', event.target.value)}
-                placeholder="0"
-                className={`${SELECT_CLASS} mt-1`}
-              />
-            </div>
-            <div>
-              <label htmlFor="filter-max" className={LABEL_CLASS}>
-                Max revenue
-              </label>
-              <input
-                id="filter-max"
-                type="number"
-                min="0"
-                value={maxRevenue}
-                onChange={(event) => updateParam('maxRevenue', event.target.value)}
-                placeholder="Any"
-                className={`${SELECT_CLASS} mt-1`}
-              />
+          <div className="min-w-0 sm:col-span-2">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex min-w-0 flex-col">
+                <label htmlFor="filter-min" className={LABEL_CLASS}>
+                  Min revenue
+                </label>
+                <input
+                  id="filter-min"
+                  type="number"
+                  min="0"
+                  value={minRevenue}
+                  onChange={(event) => updateParam('minRevenue', event.target.value)}
+                  placeholder="0"
+                  className={CONTROL_CLASS}
+                />
+              </div>
+              <div className="flex min-w-0 flex-col">
+                <label htmlFor="filter-max" className={LABEL_CLASS}>
+                  Max revenue
+                </label>
+                <input
+                  id="filter-max"
+                  type="number"
+                  min="0"
+                  value={maxRevenue}
+                  onChange={(event) => updateParam('maxRevenue', event.target.value)}
+                  placeholder="Any"
+                  className={CONTROL_CLASS}
+                />
+              </div>
             </div>
           </div>
         </div>

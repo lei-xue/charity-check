@@ -1,4 +1,5 @@
 import { Link, NavLink, Route, Routes } from 'react-router-dom'
+import { BrandMark } from './components/BrandMark'
 import { About } from './pages/About'
 import { Browse } from './pages/Browse'
 import { Home } from './pages/Home'
@@ -28,18 +29,13 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-4 py-3">
-          <Link to="/" className="flex items-center gap-2 font-bold text-slate-900">
-            <span
-              aria-hidden="true"
-              className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-sm text-white"
-            >
-              CC
-            </span>
-            CharityCheck
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <Link to="/" className="flex min-w-0 items-center gap-2 font-bold text-slate-900">
+            <BrandMark className="h-8 w-8 shrink-0" />
+            <span className="truncate">CharityCheck</span>
           </Link>
-          <nav aria-label="Main navigation">
-            <ul className="flex gap-1 text-sm font-medium">
+          <nav aria-label="Main navigation" className="min-w-0 max-w-full">
+            <ul className="flex flex-wrap gap-1 text-sm font-medium">
               <li>
                 <NavLink to="/" end className={NAV_LINK_CLASS}>
                   Home

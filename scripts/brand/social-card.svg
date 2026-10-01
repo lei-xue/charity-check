@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="630" fill="#faf7f0"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#ebbdc9" stroke-width="8"/>
+
+  <g transform="translate(84 88) scale(3.2)">
+    <rect x="5" y="4" width="26" height="36" rx="5" fill="#922c4e"/>
+    <path d="M12 14h12M12 21h12M12 28h7" stroke="#faf7f0" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <circle cx="32" cy="32" r="9" fill="#faf7f0" stroke="#642236" stroke-width="3"/>
+    <path d="M38.5 38.5 45 45" stroke="#642236" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <text x="84" y="300" font-size="30" font-weight="600" letter-spacing="6" fill="#922c4e">CHARITYCHECK</text>
+  <text x="84" y="380" font-size="72" font-weight="700" fill="#642236">Check before you give.</text>
+  <rect x="84" y="404" width="176" height="8" fill="#922c4e"/>
+  <text x="84" y="468" font-size="30" fill="#475569">Public IRS Form 990 records and historical,</text>
+  <text x="84" y="514" font-size="30" fill="#475569">self-reported figures for 111 U.S. charities.</text>
+
+  <rect x="0" y="548" width="1200" height="82" fill="#78253f"/>
+  <text x="84" y="598" font-size="26" fill="#f5dfe4">charitycheck.leixue.dev — Informational only, not a trust rating.</text>
+</svg>
