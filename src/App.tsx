@@ -85,7 +85,7 @@ export default function App() {
             before donating.
           </p>
           <p className="mt-1">
-            Data: IRS Form 990 via{' '}
+            Data: public IRS Form 990 records via{' '}
             <a
               href="https://projects.propublica.org/nonprofits/"
               target="_blank"

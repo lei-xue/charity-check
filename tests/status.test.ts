@@ -8,33 +8,35 @@ import {
   rulingYear,
 } from '../src/lib/status.ts'
 
-test('getBadges always marks a successful result as Verified', () => {
+test('getBadges labels the source record instead of certifying it as Verified', () => {
   const badges = getBadges({ subsectionCode: 3, nteeCode: 'P210', latestFiling: null })
-  assert.equal(badges[0].label, 'Verified')
+  assert.equal(badges[0].label, 'ProPublica record')
+  assert.ok(!badges.some((badge) => /verified/i.test(badge.label)))
 })
 
-test('getBadges emits 501(c)(3) only for subsectionCode 3', () => {
+test('getBadges never infers Public Charity from 501(c)(3) + NTEE', () => {
+  const badges = getBadges({ subsectionCode: 3, nteeCode: 'B21', latestFiling: null })
+  assert.ok(!badges.some((badge) => /public charity/i.test(badge.label)))
+})
+
+test('getBadges marks 501(c)(3) as source-reported, not confirmed eligibility', () => {
   const with3 = getBadges({ subsectionCode: 3, nteeCode: 'E01', latestFiling: null })
-  assert.ok(with3.some((badge) => badge.label === '501(c)(3)'))
+  const labels3 = with3.map((badge) => badge.label)
+  assert.ok(
+    labels3.some((label) => /^501\(c\)\(3\)/.test(label) && /as reported/i.test(label)),
+    `expected a source-reported 501(c)(3) label, got ${JSON.stringify(labels3)}`,
+  )
 
   const withOther = getBadges({ subsectionCode: 4, nteeCode: 'E01', latestFiling: null })
-  assert.ok(!withOther.some((badge) => badge.label === '501(c)(3)'))
+  assert.ok(!withOther.some((badge) => badge.label.startsWith('501(c)(3)')))
 })
 
-test('getBadges emits Public Charity only with subsection 3 and an NTEE code', () => {
-  const both = getBadges({ subsectionCode: 3, nteeCode: 'B21', latestFiling: null })
-  assert.ok(both.some((badge) => badge.label === 'Public Charity'))
-
-  const noNtee = getBadges({ subsectionCode: 3, nteeCode: null, latestFiling: null })
-  assert.ok(!noNtee.some((badge) => badge.label === 'Public Charity'))
-
-  const wrongSubsection = getBadges({ subsectionCode: 7, nteeCode: 'B21', latestFiling: null })
-  assert.ok(!wrongSubsection.some((badge) => badge.label === 'Public Charity'))
-})
-
-test('getBadges emits Data Missing when there is no latest filing', () => {
+test('getBadges reports unavailable extracted filing without a fraud claim', () => {
   const missing = getBadges({ subsectionCode: 3, nteeCode: 'P20', latestFiling: null })
-  assert.ok(missing.some((badge) => badge.label === 'Data Missing'))
+  const amber = missing.filter((badge) => badge.tone === 'amber').map((badge) => badge.label)
+  assert.equal(amber.length, 1, 'expected exactly one amber filing-status label')
+  assert.match(amber[0], /filing/i)
+  assert.ok(!/fraud|opaque|missing data/i.test(amber[0]))
 
   const present = getBadges({
     subsectionCode: 3,
@@ -47,10 +49,10 @@ test('getBadges emits Data Missing when there is no latest filing', () => {
       pdfUrl: null,
     },
   })
-  assert.ok(!present.some((badge) => badge.label === 'Data Missing'))
+  assert.ok(!present.some((badge) => badge.tone === 'amber'))
 })
 
-test('getBadges uses one tone per label', () => {
+test('getBadges uses one tone per label and no duplicate labels', () => {
   const badges = getBadges({ subsectionCode: 3, nteeCode: 'P20', latestFiling: null })
   const labels = badges.map((badge) => badge.label)
   assert.equal(new Set(labels).size, labels.length)
@@ -76,17 +78,24 @@ test('causeFromNtee is case-insensitive and tolerates missing codes', () => {
   assert.equal(causeFromNtee('Z99'), 'Other')
 })
 
-test('formatTaxPeriod renders tax_prd as year-month', () => {
+test('formatTaxPeriod renders tax_prd as year-month and never invents a period', () => {
   assert.equal(formatTaxPeriod(202306), '2023-06')
   assert.equal(formatTaxPeriod(199001), '1990-01')
   assert.equal(formatTaxPeriod(202512), '2025-12')
   assert.equal(formatTaxPeriod(null), 'Unknown period')
+  assert.equal(formatTaxPeriod(undefined), 'Unknown period')
 })
 
-test('formatEin inserts the dash for 9-digit EINs only', () => {
+test('formatEin pads numeric source identifiers to canonical 9-digit display', () => {
   assert.equal(formatEin(530196605), '53-0196605')
   assert.equal(formatEin(990192064), '99-0192064')
-  assert.equal(formatEin(1234), '1234')
+  assert.equal(formatEin(42263040), '04-2263040')
+  assert.equal(formatEin(10471949), '01-0471949')
+})
+
+test('formatEin degrades safely for non-finite input', () => {
+  assert.equal(formatEin(Number.NaN), '')
+  assert.equal(formatEin(Number.POSITIVE_INFINITY), '')
 })
 
 test('rulingYear extracts the 4-digit year from the ruling date', () => {

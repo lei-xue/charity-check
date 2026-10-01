@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { charities, getCauseSummaries, latestTaxYear } from '../data/charities'
+import { charities, getCauseSummaries, latestTaxYear, snapshotDateLabel } from '../data/charities'
 
 export function Home() {
   const [query, setQuery] = useState('')
@@ -29,8 +29,8 @@ export function Home() {
       <section className="rounded-2xl bg-gradient-to-br from-emerald-700 via-emerald-800 to-slate-900 px-6 py-12 text-center text-white sm:px-12">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Check before you give.</h1>
         <p className="mx-auto mt-3 max-w-2xl text-emerald-100">
-          CharityCheck summarizes IRS Form 990 filings so you can see whether a charity is
-          registered, tax-exempt, and financially transparent — before you donate.
+          CharityCheck summarizes public IRS records and historical, self-reported Form 990 filings
+          so you can see what a charity has reported — before you donate.
         </p>
         <form
           onSubmit={handleSubmit}
@@ -65,7 +65,7 @@ export function Home() {
             <dd className="mt-1 text-3xl font-bold text-slate-900">{charities.length}</dd>
           </div>
           <div className="rounded-xl bg-white p-5 ring-1 ring-slate-200">
-            <dt className="text-sm font-medium text-slate-500">Latest tax year</dt>
+            <dt className="text-sm font-medium text-slate-500">Most recent filing year</dt>
             <dd className="mt-1 text-3xl font-bold text-slate-900">{latestTaxYear || '—'}</dd>
           </div>
           <div className="rounded-xl bg-white p-5 ring-1 ring-slate-200">
@@ -75,6 +75,11 @@ export function Home() {
             </dd>
           </div>
         </dl>
+        <p className="mt-3 text-sm text-slate-500">
+          Snapshot of public records taken {snapshotDateLabel()}. Figures are historical and
+          self-reported by the organizations — not a trust rating and not a confirmation of
+          current IRS tax-exempt status.
+        </p>
       </section>
 
       <section aria-labelledby="causes-heading">
@@ -82,7 +87,8 @@ export function Home() {
           Browse by cause
         </h2>
         <p className="mt-1 text-sm text-slate-500">
-          Categories are derived from each charity&apos;s IRS NTEE activity code.
+          Categories are derived from each charity&apos;s NTEE activity code as reported in the
+          source records.
         </p>
         <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {causes.map((cause) => (

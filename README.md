@@ -1,32 +1,55 @@
-# React + TypeScript + Vite
+# CharityCheck
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An English-only web application for inspecting public U.S. nonprofit records and historical, self-reported Form 990 figures before donating. It is informational, not a trust rating, fraud detector, or certification of current tax exemption or deductibility.
 
-Currently, two official plugins are available:
+## Current features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- A curated snapshot of 111 organizations, captured on September 20, 2026.
+- Local name, EIN and city search, with state, cause and revenue filters.
+- Organization profiles with source-reported classification, filing periods, historical financial figures and source links.
+- An optional ProPublica lookup from the existing Browse search, through a bounded first-party Cloudflare Worker. Submitting explicitly sends the query to Cloudflare and ProPublica; local filters do not apply upstream. Every record on each source page is retained, with Previous/Next navigation and a visible 10,000-result source cap.
+- Lookup cancellation, stale-response protection, retry and one 12-second deadline.
 
-## React Compiler
+Local browsing and filtering do not automatically contact the lookup API. Local searches are reflected in the hash-router URL and may therefore remain in browser history or copied links. Do not enter sensitive personal information.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the Oxlint configuration
+Use Node.js 24 or newer for the native TypeScript test runner; this milestone was exercised with Node.js 26.7.0. No API key is required for local browsing.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm ci
+npm run dev
+npm test
+npm run lint
+npm run build
+npm run preview
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The application uses React, TypeScript, Vite, Tailwind CSS and HashRouter. Vite's relative asset base supports static hosting; this milestone does not change hosting or establish a working production URL.
+
+## Data and provenance
+
+- `src/data/charities.json`: the committed curated records.
+- `src/data/dataset-meta.json`: source, snapshot timestamp and record count.
+- Source: [ProPublica Nonprofit Explorer API v2](https://projects.propublica.org/nonprofits/api).
+- Current exemption and deductibility verification: [IRS Tax Exempt Organization Search](https://apps.irs.gov/app/eos/).
+
+A snapshot date is not a filing period. A fresh ProPublica response is not a live IRS status check. `ProPublica record` means a source record was found; `501(c)(3) (as reported)` repeats its classification without independently establishing current eligibility. No `Public Charity` classification is inferred from NTEE activity codes. A missing extracted filing is not evidence of wrongdoing. Reported zero and absent financial amounts remain distinct.
+
+Visitor EINs must contain nine digits or use `XX-XXXXXXX`; malformed input is not silently repaired. Validated numeric source identifiers are padded for display without rewriting the original dataset. Existing numeric organization links remain supported only when they exactly identify a curated record.
+
+### Refreshing the snapshot
+
+```sh
+npm run data:fetch
+```
+
+This explicitly runs `scripts/fetch-charities.mjs`, contacts upstream sources and can replace the committed snapshot. Review the script and resulting record count, amounts, dates and URLs before committing a refresh. The Phase 0/1 milestone did **not** refresh or expand the dataset.
+
+## Verification and remaining scope
+
+See [Implementation and verification](docs/implementation.md) for measured checks and API observations. The first-party Worker has been deployed and verified with real name/EIN queries, including browser CORS and pagination. The main frontend deployment remains unverified. No accounts, payment flows, AI trust scores, multilingual interface or frontend hosting migration are included.
+
+### Lookup backend
+
+Source/configuration: `workers/lookup/`. Deploy with `npx wrangler deploy --config workers/lookup/wrangler.jsonc` after confirming the intended account and Workers Free plan. The Worker permits fixed ProPublica queries only; it is not an arbitrary-URL proxy. It restricts origins, methods, query length, page range, response size and upstream time, and leaves observability disabled. Changing the frontend origin requires an explicit allowlist update and a fresh CORS/browser check.

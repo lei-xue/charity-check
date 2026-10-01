@@ -1,11 +1,5 @@
 import { Link } from 'react-router-dom'
-import { charities, datasetMeta } from '../data/charities'
-
-function generatedDate(): string {
-  const date = new Date(datasetMeta.generatedAt)
-  if (Number.isNaN(date.getTime())) return 'unknown date'
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
+import { charities, snapshotDateLabel } from '../data/charities'
 
 export function About() {
   return (
@@ -13,9 +7,10 @@ export function About() {
       <div>
         <h1 className="text-3xl font-bold text-slate-900">About CharityCheck</h1>
         <p className="mt-2 max-w-3xl text-slate-600">
-          CharityCheck is a free, ad-free tool that helps U.S. donors do a quick legitimacy and
-          financial-transparency check on a charity before donating. It is built entirely on
-          public IRS data.
+          CharityCheck is a free, ad-free tool that shows U.S. donors public records and historical,
+          self-reported Form 990 figures for a charity before donating. It is built entirely on
+          public IRS data and is informational only — it does not certify that any organization is
+          trustworthy, currently tax-exempt, or in good standing.
         </p>
       </div>
 
@@ -24,8 +19,8 @@ export function About() {
           Where the data comes from
         </h2>
         <p className="mt-2 text-slate-600">
-          All organization records and financial figures come from IRS Form 990 filings,
-          accessed through the{' '}
+          Organization records and historical IRS filing figures are accessed
+          through the{' '}
           <a
             href="https://projects.propublica.org/nonprofits/api"
             target="_blank"
@@ -34,60 +29,84 @@ export function About() {
           >
             ProPublica Nonprofit Explorer API v2
           </a>
-          . ProPublica processes the IRS e-file data and publishes it for free. Nothing on this
-          site is estimated, invented, or manually edited — every dollar figure is taken
-          directly from the API.
+          . ProPublica processes IRS e-file data and publishes it for free. No figure is estimated
+          or manually edited — each dollar figure is taken from the API exactly as the organization
+          reported it.
         </p>
         <p className="mt-2 text-slate-600">
-          The curated dataset of {charities.length} well-known charities is generated at build
-          time (snapshot taken {generatedDate()}), so figures reflect the most recent filing
-          available at that moment, not real-time data. The &ldquo;live lookup&rdquo; box on
-          charity pages queries the same API in real time through a public CORS proxy; those
-          results are labeled &ldquo;Live IRS data via ProPublica.&rdquo;
+          The curated snapshot of {charities.length} well-known charities was captured on{' '}
+          {snapshotDateLabel()}, so figures reflect the most recent filing available at that moment,
+          not real-time data. The optional broader lookup queries the same
+          API through our bounded Cloudflare Worker. Submitting sends your query
+          to Cloudflare and ProPublica; local browsing does not. Name results retain every record
+          on each source page, with Previous/Next navigation. ProPublica caps broad searches at
+          10,000 matches, so a capped result is not a complete count of all possible matches.
         </p>
+      </section>
+
+      <section aria-labelledby="boundaries-heading" className="rounded-xl bg-white p-6 ring-1 ring-slate-200">
+        <h2 id="boundaries-heading" className="text-xl font-bold text-slate-900">
+          What CharityCheck is — and is not
+        </h2>
+        <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-slate-600">
+          <li>
+            It shows what public records and historical, self-reported filings contain at a snapshot
+            date. It is not a trust rating, a legitimacy certification, or a fraud check.
+          </li>
+          <li>
+            It shows <em>historical</em> filings. A recorded tax period describes a past year, not
+            an organization&apos;s current financial health.
+          </li>
+          <li>
+            The &ldquo;live lookup&rdquo; is a fresh ProPublica query, not a live IRS status check.
+            For current tax-exempt status and deductibility, use the official IRS sources linked
+            here.
+          </li>
+          <li>
+            Missing data is about the availability of extracted filings, not a statement about the
+            organization.
+          </li>
+        </ul>
       </section>
 
       <section aria-labelledby="badges-heading" className="rounded-xl bg-white p-6 ring-1 ring-slate-200">
         <h2 id="badges-heading" className="text-xl font-bold text-slate-900">
-          What the badges mean — and their limits
+          What the labels mean — and their limits
         </h2>
         <dl className="mt-3 flex flex-col gap-3 text-slate-600">
           <div>
-            <dt className="font-semibold text-slate-900">Verified</dt>
+            <dt className="font-semibold text-slate-900">ProPublica record</dt>
             <dd>
-              The organization exists in current IRS exempt-organization data. Every charity
-              listed here carries this badge; it means the record was successfully retrieved
-              from the IRS data via ProPublica — nothing more.
+              A record for this organization was retrieved from ProPublica&apos;s public
+              IRS-form data at the snapshot date. Every charity here carries this label; it means
+              the record was found — nothing more. It is not a verification or endorsement.
             </dd>
           </div>
           <div>
-            <dt className="font-semibold text-slate-900">501(c)(3)</dt>
+            <dt className="font-semibold text-slate-900">501(c)(3) (as reported)</dt>
             <dd>
-              The IRS lists the organization under subsection 501(c)(3), which generally makes
-              donations tax-deductible. Always confirm deductibility for a specific gift.
+              The source record lists the organization under subsection 501(c)(3) at the snapshot
+              date. This is a source-reported, historical value — not an independent confirmation
+              that the organization is currently eligible for tax-deductible donations. Always
+              confirm deductibility for a specific gift with the IRS.
             </dd>
           </div>
           <div>
-            <dt className="font-semibold text-slate-900">Public Charity</dt>
+            <dt className="font-semibold text-slate-900">Filing data unavailable</dt>
             <dd>
-              <strong>Simplification:</strong> we show this badge when the organization has a
-              501(c)(3) subsection and an NTEE activity code. That is a reasonable but imperfect
-              proxy — some 501(c)(3) organizations (for example private foundations) are not
-              public charities. The official classification is on the IRS determination record.
-            </dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-slate-900">Data Missing</dt>
-            <dd>
-              ProPublica has no extracted financial data for a recent filing of this
-              organization, so no revenue, expenses, or assets are shown. This is common for
-              very new organizations or filings that have not been processed yet.
+              ProPublica had no extracted financial filing for this organization at the snapshot
+              date, so no revenue, expenses, or assets are shown. This describes the availability
+              of extracted filing data only — it is not a claim that the organization is opaque,
+              hiding finances, or fraudulent. It is common for new organizations and for filings
+              that have not been processed yet.
             </dd>
           </div>
         </dl>
         <p className="mt-3 text-sm text-slate-500">
           Note: charity names are shown exactly as they appear in IRS records, which can differ
-          from public brand names (for example, rebrands, DBAs, and legal-name changes).
+          from public brand names (for example, rebrands, DBAs, and legal-name changes). Financial
+          values shown as &ldquo;$0&rdquo; were reported as zero; values shown as &ldquo;Not
+          reported&rdquo; were absent from the extracted filing.
         </p>
       </section>
 
@@ -109,7 +128,8 @@ export function About() {
             apps.irs.gov
           </a>{' '}
           before donating. CharityCheck is an independent project and is not affiliated with the
-          IRS or ProPublica. Financial figures are as self-reported by organizations on Form 990.
+          IRS or ProPublica. Financial figures are historical and as self-reported by organizations
+          on Form 990.
         </p>
       </section>
 

@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { CharityCard } from '../components/CharityCard'
+import { LiveLookup } from '../components/LiveLookup'
 import { allStates, charities, getCauseSummaries } from '../data/charities'
 import { filterCharities, type CharityFilters } from '../lib/query'
 
@@ -139,6 +140,8 @@ export function Browse() {
           </div>
         </div>
       </section>
+
+      {q.trim() && <LiveLookup key={q} searchQuery={q} />}
 
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm text-slate-600" role="status">

@@ -1,4 +1,4 @@
-import { causeFromNtee } from './status'
+import { causeFromNtee, einMatchesQuery } from './status'
 import type { Charity } from './types'
 
 export function causeLetter(org: Charity): string {
@@ -16,8 +16,7 @@ export interface CharityFilters {
 function matchesQuery(org: Charity, rawQuery: string): boolean {
   const needle = rawQuery.trim().toLowerCase()
   if (!needle) return true
-  const digits = needle.replace(/\D+/g, '')
-  if (digits.length >= 7 && String(org.ein).includes(digits)) return true
+  if (einMatchesQuery(org.ein, rawQuery)) return true
   return (
     org.name.toLowerCase().includes(needle) ||
     (org.city?.toLowerCase().includes(needle) ?? false) ||

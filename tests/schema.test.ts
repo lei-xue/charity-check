@@ -75,3 +75,37 @@ test('financial amounts are numbers or null, never fabricated strings', () => {
     }
   }
 })
+
+test('source completeness: snapshot metadata matches the curated record count', () => {
+  const meta = JSON.parse(
+    readFileSync(new URL('../src/data/dataset-meta.json', import.meta.url), 'utf8'),
+  ) as { count: number; generatedAt: string; source: string }
+  assert.equal(meta.count, (charities as unknown[]).length)
+  assert.ok(
+    (charities as unknown[]).length >= 111,
+    'the curated snapshot must keep at least the 111 curated records',
+  )
+  assert.ok(!Number.isNaN(new Date(meta.generatedAt).getTime()), 'generatedAt must be a valid date')
+})
+
+test('every record carries a usable numeric source identifier', () => {
+  for (const entry of charities as Record<string, unknown>[]) {
+    assert.equal(typeof entry.ein, 'number', `ein must be numeric for ${entry.name}`)
+    const ein = entry.ein as number
+    assert.ok(Number.isInteger(ein), `ein must be an integer for ${entry.name}`)
+    assert.ok(ein > 0 && ein <= 999999999, `ein out of range for ${entry.name}: ${ein}`)
+    assert.ok(String(ein).length <= 9, `ein must fit 9 digits for ${entry.name}: ${ein}`)
+  }
+})
+
+test('missing amounts and real zeros are both represented and kept distinct', () => {
+  const records = charities as Record<string, unknown>[]
+  const withNullAmount = records.filter((entry) => entry.revenueAmount === null)
+  const withZeroAmount = records.filter(
+    (entry) => entry.revenueAmount === 0 || entry.assetAmount === 0 || entry.incomeAmount === 0,
+  )
+  assert.ok(withNullAmount.length >= 1, 'expected at least one record with a missing (null) amount')
+  assert.ok(withZeroAmount.length >= 1, 'expected at least one record with a real zero amount')
+  const withNoFiling = records.filter((entry) => entry.latestFiling === null)
+  assert.ok(withNoFiling.length >= 1, 'expected at least one record with no extracted filing')
+})
