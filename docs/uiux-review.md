@@ -34,9 +34,13 @@ https://github.com/emilkowalski/skills, pinned at e8a175de22ae1e49370fc144c1f3bb
   hardcoded version string in `vite.config.ts`.
 - `npm run lint` (oxlint): passed, no findings.
 - `npm run build` (`tsc -b && vite build`): passed.
-- `scripts/browse-focus-regression.mjs` (repo-local, dev-only; imports Playwright
-  read-only from the sibling repo's existing install, `PREVIEW_URL` override,
-  no fixture or toggle shipped): run against the built preview at
+- `scripts/browse-focus-regression.mjs` (repo-local, dev-only; Playwright is
+  resolved from this repository first, or from an explicitly provided
+  `PLAYWRIGHT_MODULE_PATH` pointing at an existing Playwright package
+  directory — never from a hardcoded sibling path; missing tool prints
+  install/provided-module guidance and exits nonzero without launching;
+  `PREVIEW_URL` override, no fixture or toggle shipped): historical
+  pre-release evidence — run against the built preview at
   `http://127.0.0.1:8803` — 10/10 checks passed: Next focuses the
   `role="status"` summary; summary top 125px vs header bottom 109px
   (scrollY 484); shareable `?page=2` URL; Tab after the summary reaches a
