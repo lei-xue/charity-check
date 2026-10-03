@@ -6,7 +6,7 @@ import { Home } from './pages/Home'
 import { OrgDetail } from './pages/OrgDetail'
 
 const NAV_LINK_CLASS = ({ isActive }: { isActive: boolean }) =>
-  `rounded-lg px-3 py-1.5 transition ${
+  `flex h-11 items-center rounded-lg px-3 transition ${
     isActive ? 'bg-brand-100 text-brand-800' : 'text-slate-600 hover:bg-slate-100'
   }`
 
@@ -28,6 +28,20 @@ function NotFound() {
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
+      <a
+        href="#main-content"
+        onClick={(event) => {
+          event.preventDefault()
+          const main = document.getElementById('main-content')
+          if (!main) return
+          main.focus({ preventScroll: true })
+          const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0
+          window.scrollTo({ top: window.scrollY + main.getBoundingClientRect().top - headerHeight - 16, behavior: 'instant' })
+        }}
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-20 focus:rounded-lg focus:bg-brand-700 focus:px-4 focus:py-3 focus:font-medium focus:text-white"
+      >
+        Skip to main content
+      </a>
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <Link to="/" className="flex min-w-0 items-center gap-2 font-bold text-slate-900">
@@ -56,7 +70,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
+      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/browse" element={<Browse />} />
@@ -92,7 +106,7 @@ export default function App() {
             </a>
             . Read more on the <Link to="/about" className="font-medium text-brand-700 hover:underline">About page</Link>.
           </p>
-          <p className="mt-2 text-xs">Version: {__APP_BUILD_VERSION__}</p>
+          <p className="mt-2 text-xs">Version {__APP_PACKAGE_VERSION__} · Built {__APP_BUILD_VERSION__}</p>
         </div>
       </footer>
     </div>

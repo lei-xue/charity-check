@@ -5,7 +5,7 @@ import { classifyEinQuery, formatEin, formatMoney, formatTaxPeriod } from '../li
 import { lookup, type LookupPage } from '../lib/lookup'
 
 type Status = 'idle' | 'loading' | 'invalid' | 'error' | 'done'
-const BUTTON = 'rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60'
+const BUTTON = 'rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60 min-h-11'
 
 export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: string; searchQuery?: string }) {
   const [typedQuery, setTypedQuery] = useState(initialQuery)
@@ -78,7 +78,7 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
           <input type="text" value={typedQuery} onChange={event => {invalidate(); setStatus('idle'); setData(null); setTypedQuery(event.target.value)}}
             placeholder="Organization name or XX-XXXXXXX" aria-label="EIN or organization name"
             aria-invalid={status === 'invalid'} aria-describedby={status === 'invalid' ? 'lookup-message' : undefined}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:ring-2 focus:ring-brand-500" />
+            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-base text-slate-900 focus:ring-2 focus:ring-brand-500" />
           <button type="submit" disabled={!query.trim()} className={BUTTON}>Look up</button>
         </form>
       ) : (

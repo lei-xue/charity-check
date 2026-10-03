@@ -5,10 +5,14 @@ An English-only web application for inspecting public U.S. nonprofit records and
 ## Current features
 
 - A curated snapshot of 500 selected U.S. charitable organizations, generated October 1, 2026. Individual source records may have been retrieved earlier.
-- Local name, EIN and city search, with state, cause and revenue filters.
+- Local name, EIN and city search, with state, cause and revenue filters. Browse results are paginated locally at 12 records per page; the page is part of the shareable URL, any filter change returns to page 1, and out-of-range page values are clamped so no record becomes unreachable.
 - Organization profiles with source-reported classification, filing periods, historical financial figures and source links.
 - An optional ProPublica lookup from the existing Browse search, through a bounded first-party Cloudflare Worker. Submitting explicitly sends the query to Cloudflare and ProPublica; local filters do not apply upstream. Every record on each source page is retained, with Previous/Next navigation and a visible 10,000-result source cap.
 - Lookup cancellation, stale-response protection, retry and one 12-second deadline.
+- Keyboard support includes a skip-to-main-content link; navigation and page controls meet a 44px touch target and filter inputs use 16px text.
+- The footer shows the package version, UTC build time and an injected short commit SHA.
+
+See [UI/UX review](docs/uiux-review.md) for the Before/After/Why findings of the browse-pagination and accessibility pass.
 
 Local browsing and filtering do not automatically contact the lookup API. Local searches are reflected in the hash-router URL and may therefore remain in browser history or copied links. Do not enter sensitive personal information.
 

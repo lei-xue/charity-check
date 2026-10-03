@@ -91,7 +91,7 @@ export function Home() {
           Categories are derived from each charity&apos;s NTEE activity code as reported in the
           source records.
         </p>
-        <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        <ul className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,12rem),1fr))] gap-3">
           {causes.map((cause) => (
             <li key={cause.letter}>
               <Link
