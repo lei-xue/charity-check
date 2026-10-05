@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { charities } from '../data/charities'
 import { classifyEinQuery, formatEin, formatMoney, formatTaxPeriod } from '../lib/status'
-import { lookup, type LookupPage } from '../lib/lookup'
+import { lookupCache, type LookupSnapshot } from '../lib/lookupCache'
 
 type Status = 'idle' | 'loading' | 'invalid' | 'error' | 'done'
 const BUTTON = 'rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60 min-h-11'
@@ -11,10 +11,12 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
   const [typedQuery, setTypedQuery] = useState(initialQuery)
   const query = searchQuery ?? typedQuery
   const [storedStatus, setStatus] = useState<Status>('idle')
-  const [data, setData] = useState<LookupPage | null>(null)
+  const [snapshot, setSnapshot] = useState<LookupSnapshot | null>(null)
   const [submitted, setSubmitted] = useState('')
   const status = submitted === query.trim() ? storedStatus : 'idle'
   const [message, setMessage] = useState('')
+  const [refreshing, setRefreshing] = useState(false)
+  const attemptedPage = useRef(0)
   const current = useRef<{token:number; controller:AbortController | null}>({token:0,controller:null})
 
   function invalidate() {
@@ -27,14 +29,21 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
     return invalidate
   }, [query])
 
-  async function run(term: string, page = 0) {
+  async function run(term: string, page = 0, force = false) {
     invalidate()
     const token = current.current.token
     const input = classifyEinQuery(term)
     setSubmitted(input.value)
-    if (!input.value) return
+    attemptedPage.current = page
+    if (!input.value) {
+      setSnapshot(null)
+      setStatus('idle')
+      setMessage('')
+      setRefreshing(false)
+      return
+    }
     if (input.kind === 'invalid-ein' || input.value.length > 200) {
-      setData(null)
+      setSnapshot(null)
       setMessage('Enter nine digits or XX-XXXXXXX for an EIN, or an organization name of at most 200 characters. Nothing was sent.')
       setStatus('invalid')
       return
@@ -42,60 +51,98 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
     const controller = new AbortController()
     current.current.controller = controller
     setStatus('loading')
-    setData(null)
+    setMessage('')
+    setRefreshing(force)
+    // Retained results for the exact submitted scope stay visible while loading.
     try {
-      const result = await lookup(input.value, page, controller.signal)
+      const candidate = lookupCache.read(input.value, page)
+      setSnapshot(candidate)
+      const result = await lookupCache.load(input.value, page, controller.signal, force)
       if (token !== current.current.token) return
-      setData(result)
+      setSnapshot(result)
       setStatus('done')
+      setMessage('')
     } catch (error) {
       if (token !== current.current.token) return
+      if (controller.signal.aborted) return
+      // Fall back to a retained (possibly stale) snapshot of the exact
+      // attempted query and page; errors are never cached.
+      const fallback = lookupCache.read(input.value, page)
+      setSnapshot(fallback ? { ...fallback, stale: true } : null)
       setMessage(error instanceof DOMException && error.name === 'TimeoutError'
         ? 'The lookup timed out. Retry or continue with the local snapshot.'
         : 'ProPublica lookup is unavailable or returned an invalid response. Retry or continue with the local snapshot.')
       setStatus('error')
     } finally {
-      if (token === current.current.token) current.current.controller = null
+      if (token === current.current.token) {
+        current.current.controller = null
+        setRefreshing(false)
+      }
     }
   }
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    void run(query)
+    void run(query, 0, false)
   }
   const sourceSearch = `https://projects.propublica.org/nonprofits/search?q=${encodeURIComponent(submitted || query)}`
   const submittedIsEin = classifyEinQuery(submitted).kind === 'ein'
+  const data = snapshot?.data ?? null
+  const fetchedAt = snapshot?.fetchedAt ?? null
+  const stale = snapshot?.stale ?? false
+  const hasMatchingData = status !== 'idle' && status !== 'invalid' && data !== null
 
   return (
     <section aria-labelledby="live-lookup-heading" className="rounded-xl bg-white p-5 ring-1 ring-slate-200">
       <h2 id="live-lookup-heading" className="text-lg font-semibold text-slate-900">Broader ProPublica lookup</h2>
       <p className="mt-1 text-sm text-slate-500">
-        Submitting sends the name or EIN through our Cloudflare Worker to ProPublica. Local filters do not apply;
-        a fresh response is not current IRS verification.
+        Submitting a new or uncached name/EIN — or forcing a refresh/retry — sends the query through our Cloudflare Worker to ProPublica;
+        repeat lookups reuse a 15-minute in-memory cache instead of resending. Local filters do not apply.
+        Neither a fresh nor cached response is current IRS verification or a guarantee of donation eligibility.
       </p>
       {searchQuery === undefined ? (
         <form onSubmit={submit} className="mt-3 flex flex-col gap-2 sm:flex-row">
-          <input type="text" value={typedQuery} onChange={event => {invalidate(); setStatus('idle'); setData(null); setTypedQuery(event.target.value)}}
+          <input type="text" value={typedQuery} onChange={event => {invalidate(); setStatus('idle'); setSnapshot(null); setMessage(''); setTypedQuery(event.target.value)}}
             placeholder="Organization name or XX-XXXXXXX" aria-label="EIN or organization name"
             aria-invalid={status === 'invalid'} aria-describedby={status === 'invalid' ? 'lookup-message' : undefined}
             className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-base text-slate-900 focus:ring-2 focus:ring-brand-500" />
           <button type="submit" disabled={!query.trim()} className={BUTTON}>Look up</button>
         </form>
       ) : (
-        <button type="button" onClick={() => void run(query)} disabled={!query.trim()} className={`${BUTTON} mt-3`}>
+        <button type="button" onClick={() => void run(query, 0, false)} disabled={!query.trim()} className={`${BUTTON} mt-3`}>
           Look up this name or EIN
         </button>
       )}
       {status === 'loading' && (
         <div className="mt-3 flex items-center gap-3">
-          <p role="status" className="text-sm text-slate-500">Contacting ProPublica…</p>
-          <button type="button" onClick={() => {invalidate(); setStatus('idle')}} className="text-sm text-brand-700 underline">Cancel lookup</button>
+          <p role="status" className="text-sm text-slate-500">{refreshing ? 'Refreshing ProPublica data…' : 'Contacting ProPublica…'}</p>
+          <button type="button" onClick={() => {invalidate(); setStatus('idle')}} className="min-h-11 text-sm text-brand-700 underline">Cancel lookup</button>
         </div>
       )}
-      {(status === 'invalid' || status === 'error') && (
+      {status === 'error' && (
         <div className="mt-3 text-sm text-amber-900">
           <p id="lookup-message" role="alert">{message}</p>
-          {status === 'error' && <button type="button" onClick={() => void run(submitted)} className="mt-2 font-semibold underline">Retry lookup</button>}
+          <button type="button" onClick={() => void run(submitted, attemptedPage.current, true)} className="mt-2 min-h-11 font-semibold underline">Retry lookup</button>
+        </div>
+      )}
+      {status === 'invalid' && (
+        <div className="mt-3 text-sm text-amber-900">
+          <p id="lookup-message" role="alert">{message}</p>
+        </div>
+      )}
+      {fetchedAt !== null && status !== 'idle' && status !== 'invalid' && (
+        <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-slate-500">
+          <p>
+            ProPublica data fetched <time dateTime={new Date(fetchedAt).toISOString()}>{new Date(fetchedAt).toLocaleString('en-US')}</time>.
+            {stale && status === 'loading' && ' Stale — refreshing.'}
+            {stale && status === 'error' && ' Stale — refresh failed.'}
+            {stale && status === 'done' && ' Stale.'}
+          </p>
+          {status !== 'error' && (
+            <button type="button" disabled={status === 'loading'} onClick={() => void run(submitted, attemptedPage.current, true)} className="min-h-11 font-semibold text-brand-700 underline disabled:opacity-60">
+              Refresh lookup
+            </button>
+          )}
         </div>
       )}
       {status === 'done' && data?.total === 0 && (
@@ -108,7 +155,7 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
           </p>
         </div>
       )}
-      {status === 'done' && data && data.total > 0 && (
+      {hasMatchingData && data.total > 0 && (
         <div className="mt-4">
           <p role="status" className="text-sm text-slate-600">
             {`Source page ${data.page + 1} of ${data.pages}: ${data.results.length} records; ${data.total.toLocaleString('en-US')} source-reported matches.`}
@@ -128,9 +175,9 @@ export function LiveLookup({ initialQuery = '', searchQuery }: { initialQuery?: 
               </li>
             ))}
           </ul>
-          {data.pages > 1 && <nav aria-label="ProPublica result pages" className="mt-3 flex flex-wrap items-center gap-3">
-            <button type="button" disabled={data.page===0} onClick={() => void run(submitted,data.page-1)} className={BUTTON}>Previous source page</button>
-            <button type="button" disabled={data.page+1>=data.pages} onClick={() => void run(submitted,data.page+1)} className={BUTTON}>Next source page</button>
+          {status === 'done' && data.pages > 1 && <nav aria-label="ProPublica result pages" className="mt-3 flex flex-wrap items-center gap-3">
+            <button type="button" disabled={data.page===0} onClick={() => void run(submitted,data.page-1,false)} className={BUTTON}>Previous source page</button>
+            <button type="button" disabled={data.page+1>=data.pages} onClick={() => void run(submitted,data.page+1,false)} className={BUTTON}>Next source page</button>
           </nav>}
           <a href={sourceSearch} target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm text-brand-700 underline">Continue on ProPublica</a>
         </div>

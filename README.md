@@ -9,10 +9,11 @@ An English-only web application for inspecting public U.S. nonprofit records and
 - Organization profiles with source-reported classification, filing periods, historical financial figures and source links.
 - An optional ProPublica lookup from the existing Browse search, through a bounded first-party Cloudflare Worker. Submitting explicitly sends the query to Cloudflare and ProPublica; local filters do not apply upstream. Every record on each source page is retained, with Previous/Next navigation and a visible 10,000-result source cap.
 - Lookup cancellation, stale-response protection, retry and one 12-second deadline.
+- A 40-entry memory-only live-result cache: successful identical submissions and source-page revisits reuse data for 15 minutes, preserve the retrieval time, and support explicit forced Refresh/Retry. Retry stays on the failed source page. A failed refresh retains only that same query/page's cached data with a stale label; it never becomes a successful empty result. Reload clears this application cache, and the Worker HTTP `no-store`/privacy policy is unchanged.
 - Keyboard support includes a skip-to-main-content link; navigation and page controls meet a 44px touch target and filter inputs use 16px text.
 - The footer shows the package version, UTC build time and an injected short commit SHA.
 
-See [UI/UX review](docs/uiux-review.md) for the Before/After/Why findings of the browse-pagination and accessibility pass.
+See [UI/UX review](docs/uiux-review.md) for the Before/After/Why findings of the browse-pagination and accessibility pass. See [v0.0.2 cache acceptance](docs/cache-acceptance-v0.0.2.md) for measured live-cache checks and portable browser regression commands.
 
 Local browsing and filtering do not automatically contact the lookup API. Local searches are reflected in the hash-router URL and may therefore remain in browser history or copied links. Do not enter sensitive personal information.
 
@@ -39,7 +40,7 @@ The application uses React, TypeScript, Vite, Tailwind CSS and HashRouter. Vite'
 - Source: [ProPublica Nonprofit Explorer API v2](https://projects.propublica.org/nonprofits/api).
 - Current exemption and deductibility verification: [IRS Tax Exempt Organization Search](https://apps.irs.gov/app/eos/).
 
-A snapshot date is not a filing period. A fresh ProPublica response is not a live IRS status check. `ProPublica record` means a source record was found; `501(c)(3) (as reported)` repeats its classification without independently establishing current eligibility. No `Public Charity` classification is inferred from NTEE activity codes. A missing extracted filing is not evidence of wrongdoing. Reported zero and absent financial amounts remain distinct.
+A snapshot date is not a filing period. Neither a fresh nor cached ProPublica response is a live IRS status check. `ProPublica record` means a source record was found; `501(c)(3) (as reported)` repeats its classification without independently establishing current eligibility. No `Public Charity` classification is inferred from NTEE activity codes. A missing extracted filing is not evidence of wrongdoing. Reported zero and absent financial amounts remain distinct.
 
 Visitor EINs must contain nine digits or use `XX-XXXXXXX`; malformed input is not silently repaired. Validated numeric source identifiers are padded for display without rewriting the original dataset. Existing numeric organization links remain supported only when they exactly identify a curated record.
 
