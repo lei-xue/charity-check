@@ -178,7 +178,7 @@ test('secondary text colour meets WCAG AA contrast on white and cream surfaces',
   assert.ok(!charityCard.includes('<h3'), 'browse cards must not skip a heading level after the page h1')
 })
 
-test('site footer exposes package version, build timestamp and short commit identifier', () => {
+test('site footer exposes copyright years, package version and short commit identifier', () => {
   const app = read('src/App.tsx')
   const config = read('vite.config.ts')
   const pkg = JSON.parse(read('package.json'))
@@ -187,7 +187,8 @@ test('site footer exposes package version, build timestamp and short commit iden
   assert.equal(lock.version, pkg.version, 'package-lock version must match package.json')
   assert.equal(lock.packages?.['']?.version, pkg.version, 'package-lock root entry must match package.json')
   assert.ok(app.includes('Version {__APP_PACKAGE_VERSION__}'), 'footer must show the package version')
-  assert.ok(app.includes('Built {__APP_BUILD_VERSION__}'), 'footer must show the build time and commit')
+  assert.ok(app.includes('Build {__APP_BUILD_VERSION__}'), 'footer must show the commit')
+  assert.ok(app.includes('© {copyrightYears} CharityCheck'), 'footer must show the copyright years')
   assert.ok(config.includes('CF_PAGES_COMMIT_SHA'))
   assert.ok(config.includes("execFileSync('git', ['rev-parse', 'HEAD']"))
   assert.ok(config.includes('readFileSync(new URL'), 'package version must be read from package.json, not hardcoded')

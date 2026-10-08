@@ -5,6 +5,10 @@ import { Browse } from './pages/Browse'
 import { Home } from './pages/Home'
 import { OrgDetail } from './pages/OrgDetail'
 
+const START_YEAR = 2026
+const currentYear = new Date().getFullYear()
+const copyrightYears = currentYear > START_YEAR ? `${START_YEAR}–${currentYear}` : `${START_YEAR}`
+
 const NAV_LINK_CLASS = ({ isActive }: { isActive: boolean }) =>
   `flex h-11 items-center rounded-lg px-3 transition ${
     isActive ? 'bg-brand-100 text-brand-800' : 'text-slate-600 hover:bg-slate-100'
@@ -106,7 +110,7 @@ export default function App() {
             </a>
             . Read more on the <Link to="/about" className="font-medium text-brand-700 hover:underline">About page</Link>.
           </p>
-          <p className="mt-2 text-xs">Version {__APP_PACKAGE_VERSION__} · Built {__APP_BUILD_VERSION__}</p>
+          <p className="mt-2 text-xs">© {copyrightYears} CharityCheck · Version {__APP_PACKAGE_VERSION__} · Build {__APP_BUILD_VERSION__}</p>
         </div>
       </footer>
     </div>
