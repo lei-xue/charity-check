@@ -49,11 +49,44 @@
         "name": "CharityCheck",
         "url": "https://charitycheck.leixue.dev/",
         "inLanguage": "en",
-        "description": "Summarizes public IRS Form 990 records and historical, self-reported figures for well-known U.S. charities. Informational only."
+        "description": "Summarizes public IRS Form 990 records and historical, self-reported figures for well-known U.S. charities. Informational only.",
+        "author": {
+          "@type": "Person",
+          "name": "Sherry (Lei) Xue",
+          "url": "https://blog.leixue.dev",
+          "sameAs": ["https://github.com/lei-xue"]
+        }
       }
     </script>
   </head>
   <body>
+    <noscript>
+      <h1>CharityCheck</h1>
+      <p>
+        CharityCheck summarizes public IRS Form 990 records and historical, self-reported financial
+        figures for 500 selected U.S. nonprofit organizations, so you can check what a charity has
+        reported before you donate. It is a free, ad-free tool for individual donors, built entirely
+        on public IRS records.
+      </p>
+      <p>
+        Search the snapshot by organization name, EIN, or city. Filter by state, cause, and revenue.
+        Open any organization for its filing history, financial figures, and links to the original
+        public sources. An optional live lookup queries ProPublica's Nonprofit Explorer for
+        organizations outside the snapshot.
+      </p>
+      <p>
+        Data comes from public IRS Form 990 records via the ProPublica Nonprofit Explorer API v2.
+        Financial figures are historical and self-reported by the organizations, and no amount is
+        estimated. CharityCheck is informational only — it is not a trust rating or a current IRS
+        tax-exempt status check. Confirm status and deductibility at the IRS Tax Exempt Organization
+        Search (https://apps.irs.gov/app/eos/) before donating. CharityCheck is an independent
+        project and is not affiliated with the IRS or ProPublica.
+      </p>
+      <p>
+        This interactive view needs JavaScript. Without it, you can still read a plain-text summary
+        of the site in <a href="/llms.txt">llms.txt</a>.
+      </p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
