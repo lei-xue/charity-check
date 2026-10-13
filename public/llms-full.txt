@@ -1,0 +1,53 @@
+# CharityCheck — full plain-text summary
+
+> Look up public IRS Form 990 records and historical figures for U.S. nonprofits before you donate.
+
+## What it is
+
+CharityCheck is a free, ad-free web app for individual U.S. donors who want to see what a charity has reported before giving. It presents a curated snapshot of 500 selected U.S. charitable organizations built from public IRS Form 990 records and historical, self-reported filing figures.
+
+The site is a React + TypeScript single-page app built with Vite and Tailwind CSS, deployed on Cloudflare Pages. An optional live lookup backend runs on Cloudflare Workers. Author: Sherry (Lei) Xue (https://blog.leixue.dev, https://github.com/lei-xue). Contact: hi@leixue.dev.
+
+## Features
+
+- Browse a 500-organization snapshot, with search by name, EIN, or city.
+- Filter by state, cause, and revenue.
+- Organization profiles with filing history, financial figures, and source links.
+- An optional live lookup through ProPublica's Nonprofit Explorer for organizations outside the snapshot.
+
+## Where the data comes from
+
+Organization records and historical IRS filing figures are accessed through the ProPublica Nonprofit Explorer API v2. ProPublica processes IRS e-file data and publishes it for free. No figure is estimated or manually edited — each dollar figure is taken from the API exactly as the organization reported it.
+
+The curated snapshot of 500 selected U.S. charitable organizations is not a complete registry. The snapshot was generated on October 1, 2026; records may have been retrieved earlier, and figures reflect each organization's most recent filing available in the source data, not real-time data. The optional broader lookup queries the same API through a bounded Cloudflare Worker. ProPublica caps broad searches at 10,000 matches, so a capped result is not a complete count of all possible matches.
+
+## What CharityCheck is — and is not
+
+- It shows what public records and historical, self-reported filings contain at a snapshot date. It is not a trust rating, a legitimacy certification, or a fraud check.
+- It shows historical filings. A recorded tax period describes a past year, not an organization's current financial health.
+- The live lookup is a fresh ProPublica query, not a live IRS status check. For current tax-exempt status and deductibility, use the official IRS sources below.
+- Missing data describes the availability of extracted filings, not the organization.
+
+## Labels and their limits
+
+- **ProPublica record** — a record for this organization was retrieved from ProPublica's public IRS-form data at the snapshot date. Every charity carries this label; it means the record was found, nothing more.
+- **501(c)(3) (as reported)** — the source record lists the organization under subsection 501(c)(3) at the snapshot date. This is a source-reported, historical value, not an independent confirmation of current eligibility for tax-deductible donations.
+- **Filing data unavailable** — ProPublica had no extracted financial filing for this organization at the snapshot date. This describes the availability of extracted filing data only; it is common for new organizations and for filings that have not been processed yet.
+- Financial values shown as "$0" were reported as zero; values shown as "Not reported" were absent from the extracted filing.
+- Charity names are shown exactly as they appear in IRS records, which can differ from public brand names.
+
+## Disclaimer
+
+Informational only — verify at https://apps.irs.gov/app/eos/ before donating. CharityCheck is an independent project and is not affiliated with the IRS or ProPublica. Financial figures are historical and as self-reported by organizations on Form 990.
+
+## Key pages
+
+- Home: https://charitycheck.leixue.dev/
+- Browse charities: https://charitycheck.leixue.dev/#/browse
+- About CharityCheck: https://charitycheck.leixue.dev/#/about
+
+## Sources
+
+- ProPublica Nonprofit Explorer: https://projects.propublica.org/nonprofits/
+- ProPublica Nonprofit Explorer API v2: https://projects.propublica.org/nonprofits/api
+- IRS Tax Exempt Organization Search: https://apps.irs.gov/app/eos/

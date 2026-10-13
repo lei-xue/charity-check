@@ -1,0 +1,21 @@
+# CharityCheck
+
+> Look up public IRS Form 990 records and historical figures for U.S. nonprofits before you donate.
+
+CharityCheck is a free, ad-free web app for individual U.S. donors. It shows a curated snapshot of 500 selected U.S. charitable organizations built from public IRS Form 990 records and historical, self-reported filing figures. You can search by organization name, EIN, or city; filter by state, cause, and revenue; and open a profile with filing history, financial figures, and links to the original public sources. An optional live lookup queries ProPublica's Nonprofit Explorer for organizations outside the snapshot.
+
+CharityCheck is informational only. It is not a trust rating, a legitimacy certification, or a current IRS tax-exempt status check — confirm status and deductibility with the IRS Tax Exempt Organization Search before donating. It is an independent project and is not affiliated with the IRS or ProPublica. Data comes from public IRS records via the ProPublica Nonprofit Explorer API v2; no figure is estimated or manually edited.
+
+The site is a React + TypeScript single-page app built with Vite and Tailwind CSS and deployed on Cloudflare Pages, with an optional lookup backend running on Cloudflare Workers. Author: Sherry (Lei) Xue (https://blog.leixue.dev, https://github.com/lei-xue). Contact: hi@leixue.dev.
+
+## Key pages
+
+- [Home](https://charitycheck.leixue.dev/): dataset overview, at-a-glance statistics, and search by name, EIN, or city.
+- [Browse charities](https://charitycheck.leixue.dev/#/browse): the 500-organization snapshot, filterable by state, cause, and revenue.
+- [About CharityCheck](https://charitycheck.leixue.dev/#/about): data provenance, how figures are sourced, and what the site is and is not.
+- [Full plain-text summary](https://charitycheck.leixue.dev/llms-full.txt): the same content in a longer, crawl-friendly plain-text form.
+
+## Sources
+
+- [ProPublica Nonprofit Explorer](https://projects.propublica.org/nonprofits/): source of the IRS Form 990 records and financial figures.
+- [IRS Tax Exempt Organization Search](https://apps.irs.gov/app/eos/): official place to confirm current tax-exempt status and deductibility.
