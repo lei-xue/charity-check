@@ -110,6 +110,11 @@ export default function App() {
             </a>
             . Read more on the <Link to="/about" className="font-medium text-brand-700 hover:underline">About page</Link>.
           </p>
+          <p className="mt-1">
+            <a href="mailto:hi@leixue.dev" className="font-medium text-brand-700 hover:underline">
+              hi@leixue.dev
+            </a>
+          </p>
           <p className="mt-2 text-xs">© {copyrightYears} CharityCheck · Version {__APP_PACKAGE_VERSION__} · Build {__APP_BUILD_VERSION__}</p>
         </div>
       </footer>
