@@ -41,6 +41,13 @@ test('worker rejects oversized and invalid upstream responses',async()=>{
  }
 })
 
+test('worker reports an unknown EIN as no match instead of an upstream failure',async()=>{
+ const response=await handleRequest(request('/lookup?q=98-7654320'),(async()=>new Response('',{status:404})) as typeof fetch)
+ assert.equal(response.status,200)
+ assert.deepEqual(await response.json(),{organization:null})
+ assert.equal((await handleRequest(request('/lookup?q=Foundation'),(async()=>new Response('',{status:404})) as typeof fetch)).status,502)
+})
+
 test('worker permits exact production origins without allowing lookalikes',async()=>{
  for(const from of ['https://charitycheck.leixue.dev','https://charity-check.pages.dev',origin,'http://localhost:5173','http://127.0.0.1:4188']) {
   const response=await handleRequest(request('/lookup?q=Foundation','GET',from),(async()=>new Response('{}')) as typeof fetch)
