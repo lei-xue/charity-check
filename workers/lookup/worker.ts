@@ -33,6 +33,8 @@ export async function handleRequest(request: Request, fetcher: typeof fetch = fe
   const target=ein ? `${UPSTREAM}/organizations/${ein[1]}${ein[2]}.json` : `${UPSTREAM}/search.json?q=${encodeURIComponent(q)}&page=${page}`
   try {
     const upstream=await fetcher(target,{headers:{Accept:'application/json'},redirect:'manual',signal:AbortSignal.any([request.signal,AbortSignal.timeout(8000)])})
+    // ProPublica answers 404 for an unknown EIN; report it as "no match", not an outage.
+    if(ein && upstream.status===404) return json({organization:null},200,origin)
     if(!upstream.ok) return json({error:'Upstream unavailable',upstreamStatus:upstream.status},502,origin)
     if(Number(upstream.headers.get('content-length'))>MAX_BYTES) return json({error:'Upstream response too large'},502,origin)
     if(!upstream.body) return json({error:'Missing upstream body'},502,origin)

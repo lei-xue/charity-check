@@ -72,3 +72,7 @@ test('overall timeout aborts a hung request without another attempt', async () =
 test('proxy HTTP errors do not become false no-match results', async () => {
   await assert.rejects(lookup('530196605',0,new AbortController().signal,(async()=>new Response('',{status:404})) as typeof fetch))
 })
+
+test('worker no-match body for an unknown EIN renders as zero results', () => {
+  assert.deepEqual(parseLookupPage({organization:null},'98-7654320',0).results, [])
+})
